@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/first.uss?fileID=7433441132597879392&amp;guid=95c481e6dae796b4296fbb020e193b0f&amp;type=3#first" />
+    <ui:VisualElement style="flex-grow: 1; height: 420px; width: 461px;">
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="char_name" class="my-button" style="height: 36px; width: 426px;" />
+        <ui:Slider picking-mode="Ignore" label="Slider" value="42" high-value="100" name="my_slider" style="width: 415px;" />
+    </ui:VisualElement>
+</ui:UXML>
