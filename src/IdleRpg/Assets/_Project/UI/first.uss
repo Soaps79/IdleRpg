@@ -1,7 +1,55 @@
-.my-button {
+.char-name {
     background-color: #4CAF50; /* Green */
     color: white;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 5px;
     border-radius: 5px;
+    height: 25%;
+    width: 95%;
+}
+
+.stat-line {
+    color: black;
+    font-size: 16px;
+    width: 60%;
+}
+
+.char-avatar{
+    background-color: #4CAF50; /* Green */
+    height: 128px;
+    width: 128px;
+}
+
+.battle-char-bkg{
+    background-color: white;
+    height: 180px; 
+    width: 400px;
+}
+
+.battle-name-avatar {
+    flex-basis: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.battle-single-char {
+    flex-basis: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.battle-name-stats {
+    height: 110px;
+    flex-basis: 100%;
+    flex-direction: column;
+}
+
+.stats-row {
+    flex-basis: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.skill-slider {
+    width: 390px;
 }

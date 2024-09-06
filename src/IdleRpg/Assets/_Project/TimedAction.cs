@@ -16,7 +16,8 @@ public class TimedAction : QScript
 		var node = StopWatch.AddNode("test", Duration);
 		OnEveryUpdate += () =>
 		{
-			slider.value = node.ElapsedLifetimeAsZeroToOne * 100;
+			slider.value = node.ElapsedLifetimeAsZeroToOne;
+			Debug.Log(node.ElapsedLifetimeAsZeroToOne);
 		};
 	}
 }

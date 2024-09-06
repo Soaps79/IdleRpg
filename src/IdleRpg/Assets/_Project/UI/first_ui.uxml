@@ -1,7 +1,22 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/_Project/UI/first.uss?fileID=7433441132597879392&amp;guid=95c481e6dae796b4296fbb020e193b0f&amp;type=3#first" />
-    <ui:VisualElement style="flex-grow: 1; height: 420px; width: 461px;">
-        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="char_name" class="my-button" style="height: 36px; width: 426px;" />
-        <ui:Slider picking-mode="Ignore" label="Slider" value="42" high-value="100" name="my_slider" style="width: 415px;" />
+    <ui:VisualElement class="battle-char-bkg">
+        <ui:VisualElement name="battle-char-display" class="battle-single-char">
+            <ui:VisualElement name="name-and-avatar" class="battle-name-avatar">
+                <ui:VisualElement name="name-and-stats" class="battle-name-stats">
+                    <ui:Label name="char_name" text="character name" class="char-name" />                    
+                    <ui:VisualElement name="name-and-avatar" class="stats-row">
+                        <ui:Label name="hp-label" text="Hit Points:" class="stat-line" />                    
+                        <ui:Label name="hp-value" text="100" class="stat-line" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="name-and-avatar" class="stats-row">
+                        <ui:Label name="xp-label" text="Experience:" class="stat-line" />                    
+                        <ui:Label name="xp-value" text="100" class="stat-line" />                    
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Image name="char_portrait" class="char-avatar"/>
+            </ui:VisualElement>
+            <ui:Slider picking-mode="Ignore" label="Skill Name" low-value="0" high-value="1.0" value=".5" name="my_slider" class="skill-slider" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

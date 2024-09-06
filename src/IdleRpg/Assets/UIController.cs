@@ -12,15 +12,6 @@ public class UIController : QScript
     // Start is called before the first frame update
     void Start()
     {
-        var label = UIDocument.rootVisualElement.Q<Label>("char_name");
-        label.text = "Hello World!";
 
-        _node = StopWatch.AddNode("test", 10);
-        var slider = UIDocument.rootVisualElement.Q<Slider>("my_slider");
-        OnEveryUpdate += () =>
-        {
-			slider.value = _node.ElapsedLifetimeAsZeroToOne * 100;
-            Debug.Log(_node.ElapsedLifetimeAsZeroToOne);
-		};
     }
 }
