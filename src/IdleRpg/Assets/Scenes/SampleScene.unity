@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 521049785}
   - component: {fileID: 521049784}
   m_Layer: 0
-  m_Name: battle-view
+  m_Name: battle-manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -306,11 +306,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af2de84eeaa96740bd82e29ef2e9cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterViewPrefab: {fileID: 2875994474435816748, guid: 5dca28e04393f534091dcf802478d6c9, type: 3}
+  CharacterViewPrefab: {fileID: 6894483686064507268, guid: 5dca28e04393f534091dcf802478d6c9, type: 3}
   Characters:
   - {fileID: 11400000, guid: 6ae3cf89350d26a45a4d4d189ec2f16b, type: 2}
   - {fileID: 11400000, guid: 7220d636e84e64042b06b19ad3074d8f, type: 2}
   - {fileID: 11400000, guid: fb170364e30cdfd4c837d4ddfbda1189, type: 2}
+  Enemies:
+  - {fileID: 11400000, guid: 2e27958f1b5281d4db9ce95daa823274, type: 2}
+  - {fileID: 11400000, guid: 2e27958f1b5281d4db9ce95daa823274, type: 2}
+  - {fileID: 11400000, guid: 2e27958f1b5281d4db9ce95daa823274, type: 2}
   CharacterUiDocument: {fileID: 9197481963319205126, guid: 580adfe20c9a6c04e8accdd9bf2be0d3, type: 3}
   BattleUiDocument: {fileID: 521049784}
 --- !u!4 &521049786

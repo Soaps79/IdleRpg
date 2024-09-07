@@ -5,6 +5,6 @@ public class ActiveSkill : ScriptableObject
 {
     public string SkillName;
     public int CastTime;
-    public float BaseDamageMin;
-    public float BaseDamageMax;
+    public int BaseDamageMin;
+    public int BaseDamageMax;
 }

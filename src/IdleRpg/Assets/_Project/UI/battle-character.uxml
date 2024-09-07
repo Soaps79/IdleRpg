@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/_Project/UI/first.uss?fileID=7433441132597879392&amp;guid=95c481e6dae796b4296fbb020e193b0f&amp;type=3#first" />
+    <Style src="project://database/Assets/_Project/UI/battle-character-style.uss?fileID=7433441132597879392&amp;guid=95c481e6dae796b4296fbb020e193b0f&amp;type=3#battle-character-style" />
     <ui:Box name="battle-char-box" class="battle-char-box">
         <ui:VisualElement name="battle-char-display" class="battle-char-display">
             <ui:VisualElement name="stats-and-avatar" class="stats-and-avatar">
@@ -16,7 +16,9 @@
                         <ui:Label name="xp-next-level" text="/ 2000" class="stat-line" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:Image name="char-portrait" class="char-avatar" />
+                <ui:Image name="char-portrait" class="char-avatar">
+                    <ui:Image name="death-icon" class="death-icon" style="background-image: url(&apos;project://database/Assets/_Project/Sprites/redcross.png?fileID=2800000&amp;guid=9b78aac74a9bde24691a0d64483c7c44&amp;type=3#redcross&apos;); background-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgba(255, 255, 255, 0);" />
+                </ui:Image>
             </ui:VisualElement>
             <ui:Slider picking-mode="Ignore" label="Skill Name" low-value="0" high-value="1.0" value=".5" name="skill-slider" class="skill-slider" />
         </ui:VisualElement>

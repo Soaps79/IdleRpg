@@ -1,5 +1,5 @@
 using QGame;
-using System;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public class BattleCharacterView : QScript
@@ -11,33 +11,53 @@ public class BattleCharacterView : QScript
 	private const string _maxXpLabelName = "xp-next-level";
 	private const string _avatarName = "char-portrait";
 	private const string _sliderName = "skill-slider";
+	private const string _deathIconName = "death-icon";
 
 	private Label _currentHpLabel;
 	private Label _maxHpLabel;
 	private Label _currentXpLabel;
 	private Label _maxXpLabel;
 	private Label _charNameLabel;
+	private Image _deathIcon;
 
 	private Image _avatar;
-	private CharacterSheet _characterSheet;
+	private BattleParticipant _participant;
 	private Slider _skillSlider;
 
-	public void BindToView(CharacterSheet characterSheet, TemplateContainer uiDocument)
+	public string Tracking;
+
+	public void BindToView(TemplateContainer uiDocument)
 	{
-		_characterSheet = characterSheet;
+		_participant = GetComponent<BattleParticipant>();
+		_participant.OnSkillStart += OnSkillStart;
+		_participant.OnStatUpdate += UpdateValues;
+		_participant.OnDeath += HandleDeath;
+		Tracking = _participant.NameAndId;
 		FindAllElements(uiDocument);
-		SetStartingValues();
-		BindAttack();
+		UpdateValues();
 	}
 
-	private void BindAttack()
+	private void HandleDeath(BattleParticipant participant)
 	{
-		_skillSlider.label = _characterSheet.StartingSkill.SkillName;
-		var node = StopWatch.AddNode("Attack", _characterSheet.StartingSkill.CastTime);
-		OnEveryUpdate += () =>
+		Debug.Log($"View handling death of {_participant.DisplayName} {_participant.ParticipantId}");
+		OnEveryUpdate -= UpdateSkillSlider;
+		_skillSlider.value = 0;
+		_deathIcon.style.unityBackgroundImageTintColor = new StyleColor(new Color(255, 255, 255, 255));
+	}
+
+	private void OnSkillStart(BattleParticipant participant)
+	{
+		_skillSlider.label = participant.CurrentSkillName;
+		OnEveryUpdate += UpdateSkillSlider;
+	}
+
+	private void UpdateSkillSlider()
+	{
+		if(_participant.CurrentSkillStopwatchNode == null)
 		{
-			_skillSlider.value = node.ElapsedLifetimeAsZeroToOne;
-		};
+			Debug.Log($"No skill node found for {_participant.DisplayName} {_participant.ParticipantId}");
+		}
+		_skillSlider.value = _participant.CurrentSkillStopwatchNode.ElapsedLifetimeAsZeroToOne;
 	}
 
 	private void FindAllElements(TemplateContainer uiDocument)
@@ -49,16 +69,22 @@ public class BattleCharacterView : QScript
 		_maxXpLabel = uiDocument.Q<Label>(_maxXpLabelName);
 		_avatar = uiDocument.Q<Image>(_avatarName);
 		_skillSlider = uiDocument.Q<Slider>(_sliderName);
+		_deathIcon = uiDocument.Q<Image>(_deathIconName);
 	}
 
-	private void SetStartingValues()
+	private void UpdateValues()
 	{
-		_charNameLabel.text = _characterSheet.CharacterName;
-		_currentHpLabel.text = _characterSheet.BaseHealth.ToString();
-		_maxHpLabel.text = FormatMax(_characterSheet.BaseHealth);
+		UpdateValues(_participant);
+	}
+
+	private void UpdateValues(BattleParticipant participant)
+	{
+		_charNameLabel.text = participant.DisplayName;
+		_currentHpLabel.text = participant.CurrentHealth.ToString();
+		_maxHpLabel.text = FormatMax(participant.MaxHealth);
 		_currentXpLabel.text = "200";
 		_maxXpLabel.text = FormatMax(2400);
-		_avatar.sprite = _characterSheet.AvatarImage;
+		_avatar.sprite = participant.Avatar;
 	}
 
 	private string FormatMax(int max)

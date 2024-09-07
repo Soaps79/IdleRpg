@@ -7,4 +7,5 @@ public class CharacterSheet : ScriptableObject
 	public string CharacterName;
 	public int BaseHealth;
 	public ActiveSkill StartingSkill;
+	public bool IsEnemy;
 }

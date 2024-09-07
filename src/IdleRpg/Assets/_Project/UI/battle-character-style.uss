@@ -59,3 +59,8 @@
    width: 40%;
    white-space: normal;
 }
+
+.death-icon{
+    height: 83px;
+    width: 99px;
+}
