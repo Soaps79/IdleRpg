@@ -1,46 +1,43 @@
+.battle-char-box{
+    background-color: white;
+    width: 300px; 
+    height: 120px;
+}
+
 .char-name {
     background-color: #4CAF50; /* Green */
     color: white;
     font-size: 16px;
     padding: 5px;
     border-radius: 5px;
-    height: 25%;
+    height: 30%;
     width: 95%;
 }
 
 .stat-line {
     color: black;
     font-size: 16px;
-    width: 60%;
 }
 
 .char-avatar{
+    flex-basis: 33%;
     background-color: #4CAF50; /* Green */
-    height: 128px;
-    width: 128px;
 }
 
-.battle-char-bkg{
-    background-color: white;
-    height: 180px; 
-    width: 400px;
-}
-
-.battle-name-avatar {
+.stats-and-avatar {
     flex-basis: 100%;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.battle-single-char {
+.battle-char-display {
     flex-basis: 100%;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .battle-name-stats {
-    height: 110px;
-    flex-basis: 100%;
+    flex-basis: 66%;
     flex-direction: column;
 }
 
@@ -51,5 +48,11 @@
 }
 
 .skill-slider {
-    width: 390px;
+    width: 95%;
+}
+
+.unity-base-slider > .unity-base-slider__label {
+   min-width: 30%;
+   width: 30%;
+   white-space: normal;
 }
