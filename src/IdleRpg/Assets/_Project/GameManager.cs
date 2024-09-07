@@ -13,10 +13,10 @@ public class GameManager : QScript
 
 	private void Start()
 	{
-		var slider = UIDocument.rootVisualElement.Q<Slider>("my_slider");
-		AutoAttack.BindToSlider(slider);
+		//var slider = UIDocument.rootVisualElement.Q<Slider>("my_slider");
+		//AutoAttack.BindToSlider(slider);
 
-		_battleCharacterView.BindToView(CharacterSheet, UIDocument);
+		//_battleCharacterView.BindToView(CharacterSheet, UIDocument);
 	}
 
 }

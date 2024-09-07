@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/_Project/UI/first.uss?fileID=7433441132597879392&amp;guid=95c481e6dae796b4296fbb020e193b0f&amp;type=3#first" />
-    <ui:VisualElement name="battle-char-box" class="battle-char-box">
+    <ui:Box name="battle-char-box" class="battle-char-box">
         <ui:VisualElement name="battle-char-display" class="battle-char-display">
             <ui:VisualElement name="stats-and-avatar" class="stats-and-avatar">
                 <ui:VisualElement name="name-and-stats" class="battle-name-stats">
@@ -16,9 +16,9 @@
                         <ui:Label name="xp-next-level" text="/ 2000" class="stat-line" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:Image name="char_portrait" class="char-avatar" />
+                <ui:Image name="char-portrait" class="char-avatar" />
             </ui:VisualElement>
-            <ui:Slider picking-mode="Ignore" label="Skill Name" low-value="0" high-value="1.0" value=".5" name="my_slider" class="skill-slider" />
+            <ui:Slider picking-mode="Ignore" label="Skill Name" low-value="0" high-value="1.0" value=".5" name="skill-slider" class="skill-slider" />
         </ui:VisualElement>
-    </ui:VisualElement>
+    </ui:Box>
 </ui:UXML>

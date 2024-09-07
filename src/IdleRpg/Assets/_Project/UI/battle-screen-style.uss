@@ -1,0 +1,6 @@
+.party-box{
+    flex-direction: row;
+    justify-content: center;
+    border-width: 2px;
+    height: 50%;
+}

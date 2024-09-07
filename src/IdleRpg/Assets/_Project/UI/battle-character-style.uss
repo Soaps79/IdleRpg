@@ -2,13 +2,16 @@
     background-color: white;
     width: 300px; 
     height: 120px;
+    margin: 5px;
+    border: 2px;
+    border-color: #4CAF50
 }
 
 .char-name {
     background-color: #4CAF50; /* Green */
     color: white;
     font-size: 16px;
-    padding: 5px;
+    padding: 2px;
     border-radius: 5px;
     height: 30%;
     width: 95%;
@@ -52,7 +55,7 @@
 }
 
 .unity-base-slider > .unity-base-slider__label {
-   min-width: 30%;
-   width: 30%;
+   min-width: 40%;
+   width: 40%;
    white-space: normal;
 }
