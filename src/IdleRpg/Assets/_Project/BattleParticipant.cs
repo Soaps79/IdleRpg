@@ -32,7 +32,7 @@ public class BattleParticipant : QScript
 	private float _hpHealTrigger = 0.7f;
 
 	private bool _isChoosing;
-	private bool _shouldRechoose;
+	private bool _isBattleOver;
 
 	public int CurrentMaxDamage()
 	{
@@ -127,6 +127,13 @@ public class BattleParticipant : QScript
 
 	private void BeginCast()
 	{
+		if (_isBattleOver)
+		{
+			Log.Battle($"{NameAndId} is trying to cast but the battle is over");
+			StopCasting();
+			return;
+		}
+
 		if(CurrentSkillStopwatchNode == null)
 		{
 			CurrentSkillStopwatchNode = StopWatch.AddNode("Attack", _currentSkill.CastTime);
@@ -154,6 +161,12 @@ public class BattleParticipant : QScript
 		}
 		else
 			Log.Battle($"{DisplayName} {ParticipantId} has no skill to stop");
+	}
+
+	public void EndBattle()
+	{
+		_isBattleOver = true;
+		StopCasting();
 	}
 
 	private void OnCastComplete()
@@ -191,7 +204,7 @@ public class BattleParticipant : QScript
 
 	public void TakeDamage(int damage)
 	{
-		CurrentHealth -= damage;
+		CurrentHealth = Math.Clamp(CurrentHealth - damage, 0, MaxHealth);
 		if (CurrentHealth <= 0)
 		{
 			StopCasting();

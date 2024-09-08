@@ -28,7 +28,7 @@ public class BattleParty
 	{
 		foreach (var participant in _participants)
 		{
-			participant.StopCasting();
+			participant.EndBattle();
 		}
 	}
 
