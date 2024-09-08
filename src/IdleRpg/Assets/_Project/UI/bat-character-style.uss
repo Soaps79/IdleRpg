@@ -79,6 +79,7 @@
 
 .stat-text {
     font-size: 14px;
+    color: rgb(27, 27, 27);
 }
 
 .avatar-container {
