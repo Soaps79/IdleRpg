@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/game-screen-style.uss?fileID=7433441132597879392&amp;guid=dbada7414f2e67a49a818d38073be4a3&amp;type=3#game-screen-style" />
+    <ui:Box name="whole-screen" class="whole-screen">
+        <ui:ListView name="mode-list" focusable="true" class="section-list" />
+        <ui:Box name="main-window" class="main-window" />
+    </ui:Box>
+</ui:UXML>

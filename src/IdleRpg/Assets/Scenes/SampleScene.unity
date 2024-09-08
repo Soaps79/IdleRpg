@@ -285,7 +285,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521049783}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -315,7 +315,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2e27958f1b5281d4db9ce95daa823274, type: 2}
   - {fileID: 11400000, guid: 2e27958f1b5281d4db9ce95daa823274, type: 2}
   - {fileID: 11400000, guid: 2e27958f1b5281d4db9ce95daa823274, type: 2}
-  CharacterUiDocument: {fileID: 9197481963319205126, guid: 580adfe20c9a6c04e8accdd9bf2be0d3, type: 3}
+  CharacterUiTemplate: {fileID: 9197481963319205126, guid: 580adfe20c9a6c04e8accdd9bf2be0d3, type: 3}
   BattleUiDocument: {fileID: 521049784}
 --- !u!4 &521049786
 Transform:
@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 560499946}
   - component: {fileID: 560499945}
   - component: {fileID: 560499947}
+  - component: {fileID: 560499948}
   m_Layer: 0
   m_Name: game-manager
   m_TagString: Untagged
@@ -362,10 +363,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb84a9b7f83c7de4f8a5565d98f81f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIDocument: {fileID: 0}
+  MainGameScreen: {fileID: 560499948}
   AutoAttack: {fileID: 1533298688}
   CharacterSheet: {fileID: 11400000, guid: 6ae3cf89350d26a45a4d4d189ec2f16b, type: 2}
   _battleCharacterView: {fileID: 560499947}
+  BattleManager: {fileID: 521049785}
 --- !u!4 &560499946
 Transform:
   m_ObjectHideFlags: 0
@@ -393,6 +395,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca0b65cead2cce4a9078c91fc33f9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tracking: 
+--- !u!114 &560499948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560499944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: bae165df996d70a43b2c068cc84df810, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 927fd99472f91454e977e3a846327865, type: 3}
+  m_SortingOrder: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

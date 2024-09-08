@@ -15,7 +15,8 @@ public class BattleManager : QScript
     public GameObject CharacterViewPrefab;
     public CharacterSheet[] Characters;
     public CharacterSheet[] Enemies;
-    public VisualTreeAsset CharacterUiDocument;
+    public VisualTreeAsset CharacterUiTemplate;
+
     public UIDocument BattleUiDocument;
 
     private List<BattleParticipant> _playerParty = new();
@@ -26,6 +27,14 @@ public class BattleManager : QScript
 
 	private void Start()
 	{
+        
+	}
+
+	public void InitializeUi(UIDocument document)
+	{
+		BattleUiDocument.enabled = true;
+		var mainWindow = document.rootVisualElement.Q<Box>(GameUiNames.MainWindow);
+        mainWindow.Add(BattleUiDocument.rootVisualElement);
         Initialize();
 	}
 
@@ -47,7 +56,7 @@ public class BattleManager : QScript
             _currentlyAttacking.Add(_lastId, 0);
 
 			var view = obj.GetComponent<BattleCharacterView>();
-			var characterView = CharacterUiDocument.Instantiate();
+			var characterView = CharacterUiTemplate.Instantiate();
             view.BindToView(characterView);
             playerPartyContainer.Add(characterView);
 
@@ -65,7 +74,7 @@ public class BattleManager : QScript
 			_currentlyAttacking.Add(_lastId, 0);
 
 			var view = obj.GetComponent<BattleCharacterView>();
-			var characterView = CharacterUiDocument.Instantiate();
+			var characterView = CharacterUiTemplate.Instantiate();
 			view.BindToView(characterView);
 			enemyPartyContainer.Add(characterView);
 
@@ -102,5 +111,5 @@ public class BattleManager : QScript
         _currentlyAttacking[attacker.ParticipantId] = target != null ? target.ParticipantId : 0;
 
         return target;
-	}
+	}	
 }
