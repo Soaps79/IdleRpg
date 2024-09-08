@@ -24,11 +24,10 @@ public class BattleManager : QScript
 
     public UIDocument BattleUiDocument;
 
-    private List<BattleParticipant> _playerParty = new();
-	private List<BattleParticipant> _enemyParty = new();
-    private Dictionary<int, int> _currentlyAttacking = new Dictionary<int, int>();
-
     private int _lastId = 0;
+
+    private BattleParty _playerParty = new();
+    private BattleParty _enemyParty = new();
 
 	private void Start()
 	{
@@ -58,18 +57,17 @@ public class BattleManager : QScript
             var obj = Instantiate(CharacterViewPrefab, transform);
                         
             var partipant = obj.GetComponent<BattleParticipant>();
-            partipant.Initialize(character, this);
+            partipant.Initialize(character, _playerParty, _enemyParty);
             _lastId++;
             partipant.ParticipantId = _lastId;
 			partipant.OnDeath += HandleParticipantDeath;
-            _currentlyAttacking.Add(_lastId, 0);
 
 			var view = obj.GetComponent<BattleCharacterView>();
 			var characterView = CharacterUiTemplate.Instantiate();
             view.BindToView(characterView);
             playerPartyContainer.Add(characterView);
 
-            _playerParty.Add(partipant);
+            _playerParty.AddParticipant(partipant);
         }
 
 		foreach (var character in Enemies)
@@ -77,61 +75,32 @@ public class BattleManager : QScript
 			var obj = Instantiate(CharacterViewPrefab, transform);
 
 			var partipant = obj.GetComponent<BattleParticipant>();
-			partipant.Initialize(character, this);
+			partipant.Initialize(character, _enemyParty, _playerParty);
 			_lastId++;
 			partipant.ParticipantId = _lastId;
 			partipant.OnDeath += HandleParticipantDeath;
-			_currentlyAttacking.Add(_lastId, 0);
 
 			var view = obj.GetComponent<BattleCharacterView>();
 			var characterView = CharacterUiTemplate.Instantiate();
 			view.BindToView(characterView);
 			enemyPartyContainer.Add(characterView);
 
-            _enemyParty.Add(partipant);
+            _enemyParty.AddParticipant(partipant);
 		}
 
-		foreach (var enemy in _enemyParty)
-        {
-            enemy.Begin();
-        }
-
-        foreach(var player in _playerParty)
-        {
-			player.Begin();
-		}
+		_playerParty.Begin();
+        _enemyParty.Begin();
     }
 
 	private void HandleParticipantDeath(BattleParticipant participant)
 	{
-		if(_playerParty.TrueForAll(p => p.CurrentHealth <= 0))
+		if(_playerParty.IsEveryoneDead())
         {
 			_defeatLabelElement.visible = true;
 		}
-		else if(_enemyParty.TrueForAll(p => p.CurrentHealth <= 0))
+		else if(_enemyParty.IsEveryoneDead())
         {
 			_victoryLabelElement.visible = true;
 		}
 	}
-
-	public BattleParticipant GetNextTarget(BattleParticipant attacker)
-    {
-        BattleParticipant target = null;
-        if (attacker.IsEnemy)
-        {
-            var alive = _playerParty.FindAll(p => p.CurrentHealth > 0);
-			if (alive.Count > 0) 
-                target = alive[Random.Range(0, alive.Count)];
-        }
-        else
-        {
-			var alive = _enemyParty.FindAll(p => p.CurrentHealth > 0);
-            if(alive.Count > 0)
-			    target = alive[Random.Range(0, alive.Count)];
-		}
-
-        _currentlyAttacking[attacker.ParticipantId] = target != null ? target.ParticipantId : 0;
-
-        return target;
-	}	
 }

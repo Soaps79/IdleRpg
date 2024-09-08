@@ -5,22 +5,30 @@ using Random = UnityEngine.Random;
 
 public class BattleParticipant : QScript
 {
-	public string DisplayName;
-	public int CurrentHealth;
-	public int MaxHealth;
-	public BattleManager Manager;
-	public Sprite Avatar;
-	public int ParticipantId;
-	public bool IsEnemy;
+	public string DisplayName { get; private set; }
+	public int CurrentHealth { get; private set; }
+	public int MaxHealth { get; private set; }
+
+	public Sprite Avatar { get; private set; }
+	public int ParticipantId { get; set; }
+	public bool IsEnemy { get; private set; }
+
+	private BattleParty _oppositionParty;
+	private BattleParty _ownParty;
 
 	private ActiveSkill _currentSkill;
-	public StopWatchNode CurrentSkillStopwatchNode;
+	public StopWatchNode CurrentSkillStopwatchNode { get; private set; }
 	public string CurrentSkillName => _currentSkill.SkillName;
 	private BattleParticipant _currentTarget;
 
 	public string NameAndId => $"{DisplayName} {ParticipantId}";
 
-	public void Initialize(CharacterSheet characterSheet, BattleManager manager)
+	public int CurrentMaxDamage()
+	{
+		return _currentSkill.BaseDamageMax;
+	}
+
+	public void Initialize(CharacterSheet characterSheet, BattleParty ownParty, BattleParty otherParty)
 	{
 		DisplayName = characterSheet.CharacterName;
 		CurrentHealth = characterSheet.BaseHealth;
@@ -28,7 +36,8 @@ public class BattleParticipant : QScript
 		Avatar = characterSheet.AvatarImage;
 		IsEnemy = characterSheet.IsEnemy;
 		_currentSkill = characterSheet.StartingSkill;
-		Manager = manager;	
+		_ownParty = ownParty;
+		_oppositionParty = otherParty;
 	}
 
 	public void Begin()
@@ -78,7 +87,7 @@ public class BattleParticipant : QScript
 
 	public bool GetTarget()
 	{
-		_currentTarget = Manager.GetNextTarget(this);
+		_currentTarget = _oppositionParty.GetRandomAlive();
 		if (_currentTarget == null)
 		{
 			Log.Battle($"{DisplayName} {ParticipantId} has no target");
@@ -106,6 +115,11 @@ public class BattleParticipant : QScript
 			OnDeath?.Invoke(this);			
 		}
 		OnStatUpdate?.Invoke(this);
+	}
+
+	public float HealthAsZeroToOne()
+	{
+		return (float)CurrentHealth / MaxHealth;
 	}
 
 	public Action<BattleParticipant> OnDeath;
