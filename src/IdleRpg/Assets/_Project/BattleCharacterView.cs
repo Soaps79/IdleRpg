@@ -39,7 +39,7 @@ public class BattleCharacterView : QScript
 
 	private void HandleDeath(BattleParticipant participant)
 	{
-		Debug.Log($"View handling death of {_participant.DisplayName} {_participant.ParticipantId}");
+		Log.Battle($"View handling death of {_participant.DisplayName} {_participant.ParticipantId}");
 		OnEveryUpdate -= UpdateSkillSlider;
 		_skillSlider.value = 0;
 		_deathIcon.visible = true;
@@ -55,7 +55,7 @@ public class BattleCharacterView : QScript
 	{
 		if(_participant.CurrentSkillStopwatchNode == null)
 		{
-			Debug.Log($"No skill node found for {_participant.DisplayName} {_participant.ParticipantId}");
+			Log.Battle($"No skill node found for {_participant.DisplayName} {_participant.ParticipantId}");
 		}
 		_skillSlider.value = _participant.CurrentSkillStopwatchNode.ElapsedLifetimeAsZeroToOne;
 	}

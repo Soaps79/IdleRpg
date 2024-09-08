@@ -67,7 +67,7 @@ public class BattleParticipant : QScript
 			CurrentSkillStopwatchNode.Pause();
 		}
 		else
-			Debug.Log($"{DisplayName} {ParticipantId} has no skill to stop");
+			Log.Battle($"{DisplayName} {ParticipantId} has no skill to stop");
 	}
 
 	private void OnCastComplete()
@@ -81,12 +81,12 @@ public class BattleParticipant : QScript
 		_currentTarget = Manager.GetNextTarget(this);
 		if (_currentTarget == null)
 		{
-			Debug.Log($"{DisplayName} {ParticipantId} has no target");
+			Log.Battle($"{DisplayName} {ParticipantId} has no target");
 			return false;
 		}
 
 		_currentTarget.OnDeath += OnTargetDeath;
-		Debug.Log($"{DisplayName} {ParticipantId} is attacking {_currentTarget.DisplayName} {_currentTarget.ParticipantId}");
+		Log.Battle($"{DisplayName} {ParticipantId} is attacking {_currentTarget.DisplayName} {_currentTarget.ParticipantId}");
 		return true;
 	}
 
@@ -102,7 +102,7 @@ public class BattleParticipant : QScript
 		if (CurrentHealth <= 0)
 		{
 			StopAttacking();
-			Debug.Log($"{DisplayName} {ParticipantId} has died");
+			Log.Battle($"{DisplayName} {ParticipantId} has died");
 			OnDeath?.Invoke(this);			
 		}
 		OnStatUpdate?.Invoke(this);
