@@ -24,6 +24,14 @@ public class BattleParty
 		}
 	}
 
+	public void StopAllActions()
+	{
+		foreach (var participant in _participants)
+		{
+			participant.StopCasting();
+		}
+	}
+
 	public BattleParticipant GetHighestDamage()
 	{
 		if (!_participants.Any())

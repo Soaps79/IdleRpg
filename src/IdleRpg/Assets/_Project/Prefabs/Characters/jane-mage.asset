@@ -15,4 +15,8 @@ MonoBehaviour:
   AvatarImage: {fileID: -2114007989, guid: de42be790a667164bb9c7fd794ac005f, type: 3}
   CharacterName: Magic Jane
   BaseHealth: 60
-  StartingSkill: {fileID: 11400000, guid: c74320bf469190a4c9a629ba0b799ecf, type: 2}
+  Skills:
+  - {fileID: 11400000, guid: 8f3ec08c7f8048f4d94b312554d1734b, type: 2}
+  - {fileID: 11400000, guid: c74320bf469190a4c9a629ba0b799ecf, type: 2}
+  IsEnemy: 0
+  Style: 2

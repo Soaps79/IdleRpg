@@ -16,3 +16,5 @@ MonoBehaviour:
   CastTime: 1
   BaseDamageMin: 5
   BaseDamageMax: 5
+  IsAoe: 0
+  Type: 3

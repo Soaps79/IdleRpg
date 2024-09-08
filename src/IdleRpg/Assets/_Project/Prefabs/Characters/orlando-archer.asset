@@ -15,4 +15,7 @@ MonoBehaviour:
   AvatarImage: {fileID: -2047738220, guid: de42be790a667164bb9c7fd794ac005f, type: 3}
   CharacterName: Orlando Bowman
   BaseHealth: 60
-  StartingSkill: {fileID: 11400000, guid: de40b0161ab108043ab276dc9a960160, type: 2}
+  Skills:
+  - {fileID: 11400000, guid: de40b0161ab108043ab276dc9a960160, type: 2}
+  IsEnemy: 0
+  Style: 3

@@ -15,4 +15,7 @@ MonoBehaviour:
   AvatarImage: {fileID: 740055337, guid: de42be790a667164bb9c7fd794ac005f, type: 3}
   CharacterName: Kurt BigAxe
   BaseHealth: 120
-  StartingSkill: {fileID: 11400000, guid: ce52925a41b57ab4a87359351f90c251, type: 2}
+  Skills:
+  - {fileID: 11400000, guid: ce52925a41b57ab4a87359351f90c251, type: 2}
+  IsEnemy: 0
+  Style: 3

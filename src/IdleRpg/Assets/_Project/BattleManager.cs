@@ -96,11 +96,19 @@ public class BattleManager : QScript
 	{
 		if(_playerParty.IsEveryoneDead())
         {
-			_defeatLabelElement.visible = true;
+			StopAllPartyActions(); 
+			_defeatLabelElement.visible = true;			
 		}
 		else if(_enemyParty.IsEveryoneDead())
         {
+			StopAllPartyActions();
 			_victoryLabelElement.visible = true;
 		}
+	}
+
+	private void StopAllPartyActions()
+	{
+		_playerParty.StopAllActions();
+		_enemyParty.StopAllActions();
 	}
 }
