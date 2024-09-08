@@ -1,6 +1,42 @@
-.party-box{
+.party-box {
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     border-width: 2px;
     height: 50%;
+}
+
+.victory-label {
+    margin-top: 124px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 80px;
+    -unity-font-style: bold;
+    position: absolute;
+    align-self: center;
+    color: rgb(71, 93, 219);
+    -unity-text-align: middle-center;
+    visibility: hidden;
+}
+
+.defeat-label {
+    color: rgb(183, 30, 38);
+    position: absolute;
+    align-self: center;
+    margin-top: 410px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 80px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    visibility: hidden;
 }

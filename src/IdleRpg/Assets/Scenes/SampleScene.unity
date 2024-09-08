@@ -315,7 +315,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2e27958f1b5281d4db9ce95daa823274, type: 2}
   - {fileID: 11400000, guid: 2e27958f1b5281d4db9ce95daa823274, type: 2}
   - {fileID: 11400000, guid: 2e27958f1b5281d4db9ce95daa823274, type: 2}
-  CharacterUiTemplate: {fileID: 9197481963319205126, guid: 580adfe20c9a6c04e8accdd9bf2be0d3, type: 3}
+  CharacterUiTemplate: {fileID: 9197481963319205126, guid: 6427bd34c8f0583458ec0a73f100d45c, type: 3}
   BattleUiDocument: {fileID: 521049784}
 --- !u!4 &521049786
 Transform:

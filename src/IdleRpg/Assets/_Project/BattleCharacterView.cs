@@ -4,13 +4,13 @@ using UnityEngine.UIElements;
 
 public class BattleCharacterView : QScript
 {
-	private const string _charNameLabelName = "char_name";
+	private const string _charNameLabelName = "name-label";
 	private const string _currentHpLabelName = "hp-current";
-	private const string _maxHpLabelName = "hp-total";
+	private const string _maxHpLabelName = "hp-max";
 	private const string _currentXpLabelName = "xp-current";
-	private const string _maxXpLabelName = "xp-next-level";
-	private const string _avatarName = "char-portrait";
-	private const string _sliderName = "skill-slider";
+	private const string _maxXpLabelName = "xp-max";
+	private const string _avatarName = "avatar-image";
+	private const string _sliderName = "cast-slider";
 	private const string _deathIconName = "death-icon";
 
 	private Label _currentHpLabel;
@@ -18,7 +18,7 @@ public class BattleCharacterView : QScript
 	private Label _currentXpLabel;
 	private Label _maxXpLabel;
 	private Label _charNameLabel;
-	private Image _deathIcon;
+	private VisualElement _deathIcon;
 
 	private Image _avatar;
 	private BattleParticipant _participant;
@@ -42,7 +42,7 @@ public class BattleCharacterView : QScript
 		Debug.Log($"View handling death of {_participant.DisplayName} {_participant.ParticipantId}");
 		OnEveryUpdate -= UpdateSkillSlider;
 		_skillSlider.value = 0;
-		_deathIcon.style.unityBackgroundImageTintColor = new StyleColor(new Color(255, 255, 255, 255));
+		_deathIcon.visible = true;
 	}
 
 	private void OnSkillStart(BattleParticipant participant)
@@ -69,7 +69,7 @@ public class BattleCharacterView : QScript
 		_maxXpLabel = uiDocument.Q<Label>(_maxXpLabelName);
 		_avatar = uiDocument.Q<Image>(_avatarName);
 		_skillSlider = uiDocument.Q<Slider>(_sliderName);
-		_deathIcon = uiDocument.Q<Image>(_deathIconName);
+		_deathIcon = uiDocument.Q<VisualElement>(_deathIconName);
 	}
 
 	private void UpdateValues()

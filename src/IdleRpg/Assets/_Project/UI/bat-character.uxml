@@ -1,0 +1,32 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/bat-character-style.uss?fileID=7433441132597879392&amp;guid=f898b71ed2302db47b3eb0dc35f91dcd&amp;type=3#bat-character-style" />
+    <ui:VisualElement name="character-display" class="character-display character-display-border">
+        <ui:VisualElement name="stats-and-avatar" class="stats-and-avatar" style="background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="stats-and-name" class="stats-and-name">
+                <ui:VisualElement name="name-plate" class="name-plate">
+                    <ui:Label tabindex="-1" text="Character Name" parse-escape-sequences="true" display-tooltip-when-elided="true" name="name-label" class="name-label" />
+                </ui:VisualElement>
+                <ui:VisualElement name="stats-container" style="flex-grow: 1; width: 100%; height: 80%;">
+                    <ui:VisualElement name="hp-item" class="stat-line">
+                        <ui:Label tabindex="-1" text="HP:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="hp-label" class="stat-text" />
+                        <ui:Label tabindex="-1" text="current" parse-escape-sequences="true" display-tooltip-when-elided="true" name="hp-current" class="stat-text" />
+                        <ui:Label tabindex="-1" text="/ max" parse-escape-sequences="true" display-tooltip-when-elided="true" name="hp-max" class="stat-text" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="xp-item" class="stat-line">
+                        <ui:Label tabindex="-1" text="XP:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="xp-label" class="stat-text" />
+                        <ui:Label tabindex="-1" text="current" parse-escape-sequences="true" display-tooltip-when-elided="true" name="xp-current" class="stat-text" />
+                        <ui:Label tabindex="-1" text="/ max" parse-escape-sequences="true" display-tooltip-when-elided="true" name="xp-max" class="stat-text" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="avatar-container" class="avatar-container">
+                <ui:Image name="avatar-image" class="avatar-image">
+                    <ui:VisualElement name="death-icon" class="death-icon" />
+                </ui:Image>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="skill-display" class="skill-display">
+            <ui:Slider picking-mode="Ignore" label="skill name" value="0" high-value="1" name="cast-slider" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

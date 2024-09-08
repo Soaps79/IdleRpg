@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AvatarImage: {fileID: 277466805, guid: de42be790a667164bb9c7fd794ac005f, type: 3}
   CharacterName: Brigand
-  BaseHealth: 80
+  BaseHealth: 60
   StartingSkill: {fileID: 11400000, guid: 54045164cb6987e40bf783f19390aeac, type: 2}
   IsEnemy: 1

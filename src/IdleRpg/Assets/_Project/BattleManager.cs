@@ -11,6 +11,11 @@ public class BattleManager : QScript
 {
     private const string _playerPartyContainerName = "player-party";
     private const string _enemyPartyContainerName = "enemy-party";
+    private const string _victoryLabelName = "victory-label";
+    private const string _defeatLabelName = "defeat-label";
+
+    private Label _victoryLabelElement;
+    private Label _defeatLabelElement;
 
     public GameObject CharacterViewPrefab;
     public CharacterSheet[] Characters;
@@ -44,6 +49,9 @@ public class BattleManager : QScript
         var playerPartyContainer = BattleUiDocument.rootVisualElement.Q<VisualElement>(_playerPartyContainerName);
 		var enemyPartyContainer = BattleUiDocument.rootVisualElement.Q<VisualElement>(_enemyPartyContainerName);
 
+        _victoryLabelElement = BattleUiDocument.rootVisualElement.Q<Label>(_victoryLabelName);
+        _defeatLabelElement = BattleUiDocument.rootVisualElement.Q<Label>(_defeatLabelName);
+
 		// for each character in Characters, init a view
 		foreach (var character in Characters)
         {
@@ -53,6 +61,7 @@ public class BattleManager : QScript
             partipant.Initialize(character, this);
             _lastId++;
             partipant.ParticipantId = _lastId;
+			partipant.OnDeath += HandleParticipantDeath;
             _currentlyAttacking.Add(_lastId, 0);
 
 			var view = obj.GetComponent<BattleCharacterView>();
@@ -71,6 +80,7 @@ public class BattleManager : QScript
 			partipant.Initialize(character, this);
 			_lastId++;
 			partipant.ParticipantId = _lastId;
+			partipant.OnDeath += HandleParticipantDeath;
 			_currentlyAttacking.Add(_lastId, 0);
 
 			var view = obj.GetComponent<BattleCharacterView>();
@@ -92,7 +102,19 @@ public class BattleManager : QScript
 		}
     }
 
-    public BattleParticipant GetNextTarget(BattleParticipant attacker)
+	private void HandleParticipantDeath(BattleParticipant participant)
+	{
+		if(_playerParty.TrueForAll(p => p.CurrentHealth <= 0))
+        {
+			_defeatLabelElement.visible = true;
+		}
+		else if(_enemyParty.TrueForAll(p => p.CurrentHealth <= 0))
+        {
+			_victoryLabelElement.visible = true;
+		}
+	}
+
+	public BattleParticipant GetNextTarget(BattleParticipant attacker)
     {
         BattleParticipant target = null;
         if (attacker.IsEnemy)

@@ -3,5 +3,7 @@
     <ui:VisualElement style="flex-grow: 1;">
         <ui:Box name="enemy-party" class="party-box" />
         <ui:Box name="player-party" class="party-box" />
+        <ui:Label tabindex="-1" text="Victory!" parse-escape-sequences="true" display-tooltip-when-elided="true" name="victory-label" class="victory-label" />
+        <ui:Label tabindex="-1" text="Defeat!" parse-escape-sequences="true" display-tooltip-when-elided="true" name="defeat-label" class="defeat-label" />
     </ui:VisualElement>
 </ui:UXML>

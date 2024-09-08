@@ -1,0 +1,112 @@
+.character-display {
+    flex-grow: 0;
+    width: 300px;
+    height: 160px;
+    position: relative;
+    max-width: 300px;
+    max-height: 160px;
+    min-width: 300px;
+    min-height: 160px;
+    flex-shrink: 0;
+    padding-top: 1px;
+    padding-right: 1px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    border-left-color: rgb(167, 100, 13);
+    border-right-color: rgb(167, 100, 13);
+    border-top-color: rgb(167, 100, 13);
+    border-bottom-color: rgb(167, 100, 13);
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-color: rgb(204, 190, 161);
+}
+
+.stats-and-avatar {
+    flex-grow: 0;
+    width: 100%;
+    height: 80%;
+    background-color: rgb(255, 0, 0);
+    flex-direction: row;
+}
+
+.stats-and-name {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    width: 64%;
+    height: 100%;
+}
+
+.name-plate {
+    flex-grow: 1;
+    width: 100%;
+    height: 25%;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/_Project/Sprites/botton-a.png?fileID=2800000&guid=b19be535ce65c18488c63d6595eba7de&type=3#botton-a');
+}
+
+.name-label {
+    flex-grow: 1;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 15px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    justify-content: center;
+    font-size: 16px;
+    -unity-text-align: middle-left;
+    color: rgb(250, 229, 207);
+    -unity-font-style: bold;
+}
+
+.stat-line {
+    flex-grow: 0;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 30px;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 8px;
+}
+
+.stat-text {
+    font-size: 14px;
+}
+
+.avatar-container {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0);
+    width: 33%;
+    height: 100%;
+    background-image: url('project://database/Assets/_Project/Sprites/button-square.png?fileID=2800000&guid=3b39f3f74945a6c4482a5e7ae5d619bd&type=3#button-square');
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-image {
+    flex-grow: 0;
+    width: 70%;
+    height: 70%;
+}
+
+.death-icon {
+    flex-grow: 1;
+    background-image: url('project://database/Assets/_Project/Sprites/redcross.png?fileID=2800000&guid=9b78aac74a9bde24691a0d64483c7c44&type=3#redcross');
+    display: flex;
+    visibility: hidden;
+}
+
+.skill-display {
+    flex-grow: 1;
+    width: 100%;
+    height: 20%;
+    justify-content: center;
+}

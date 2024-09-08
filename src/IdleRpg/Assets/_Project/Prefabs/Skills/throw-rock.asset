@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillName: Throw Rock
   CastTime: 4
-  BaseDamageMin: 5
-  BaseDamageMax: 5
+  BaseDamageMin: 30
+  BaseDamageMax: 30
