@@ -20,5 +20,5 @@ MonoBehaviour:
   BossParty:
   - {fileID: 11400000, guid: dd966dd21accd5d4f87c2cdaca14b9aa, type: 2}
   BossBackground: {fileID: 21300000, guid: cc535145f2fd8a04aae50fe2f301b8c5, type: 3}
-  QuestLength: 60
-  BattleCount: 6
+  QuestLength: 30
+  BattleCount: 2

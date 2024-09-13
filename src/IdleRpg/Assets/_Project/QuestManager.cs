@@ -15,19 +15,19 @@ public class QuestManager : QScript
     private float _timeSinceLastBattle = 0.0f;
 
     private float _intervalVariance = 0.5f;
-    private float _intervalBeforeBoss = 2.0f;
+    private float _intervalBeforeBoss = 5.0f;
 
     private List<float> _battlePoints = new List<float>();
     private float _nextBattlePoint = 0.0f;
     private int _currentBattleIndex = 0;
     private bool _nextBattleIsBoss = false;
-	private BattleManager _battleManager;
+	public BattleManager BattleManager { get; private set; }
 	private CharacterSheet[] _player;
 
 	public void Initialize(BattleManager battleManager, CharacterSheet[] player)
     {
-		_battleManager = battleManager;
-        _battleManager.OnBattleComplete += CompleteBattle;
+		BattleManager = battleManager;
+        BattleManager.OnBattleComplete += CompleteBattle;
         _player = player;
     }
 
@@ -36,17 +36,16 @@ public class QuestManager : QScript
         ActiveQuest = quest;
         _isProgressing = true;
     
-        Log.Quest($"Beginning quest");
-
         _questLength = ActiveQuest.QuestLength;
         var interval = (ActiveQuest.QuestLength - _intervalBeforeBoss) / ActiveQuest.BattleCount;
-        for (int i = 1; i < ActiveQuest.BattleCount; i++)
+        for (int i = 1; i <= ActiveQuest.BattleCount; i++)
         {
 			_battlePoints.Add(interval * i + Random.Range(-_intervalVariance, _intervalVariance));
 		}
 
         _nextBattlePoint = _battlePoints[0];
-    }
+		Log.Quest($"Beginning quest - point: 0, {_battlePoints[0]} seconds");
+	}
 
 	protected override void OnUpdate()
 	{
@@ -68,8 +67,16 @@ public class QuestManager : QScript
     {
         _isProgressing = false;
         Log.Quest("Switching to Battle");
-        _battleManager.BeginBattle(_player, ActiveQuest.EnemyParties[0].Enemies);
-        OnBattleBegin?.Invoke();
+        if(_nextBattleIsBoss)
+        {
+			BattleManager.BeginBattle(_player, ActiveQuest.BossParty[0].Enemies);
+		}
+        else
+        {
+			BattleManager.BeginBattle(_player, ActiveQuest.EnemyParties[0].Enemies);
+		}
+
+		OnBattleBegin?.Invoke();
     }
 
     public void CompleteBattle()
@@ -79,14 +86,16 @@ public class QuestManager : QScript
         {
             _nextBattlePoint = _questLength;
 			_nextBattleIsBoss = true;
+			Log.Quest($"Resuming quest - point: Boss, {_questLength} seconds");
 		}
 		else
         {
 			_nextBattlePoint = _battlePoints[_currentBattleIndex];
+			Log.Quest($"Resuming quest - point: {_currentBattleIndex}, {_battlePoints[_currentBattleIndex]} seconds");
 		}
 		_isProgressing = true;
         OnQuestResume?.Invoke();
-        Log.Quest("Resuming quest");
+        
 	}
 
     public float ProgressAsZeroToOne()

@@ -5,6 +5,10 @@
     height: 50%;
     align-items: center;
     background-color: rgba(0, 0, 0, 0);
+    min-height: 50%;
+    max-height: 50%;
+    flex-shrink: 0;
+    flex-grow: 1;
 }
 
 .victory-label {
@@ -44,6 +48,14 @@
 }
 
 .main-bkg {
-    flex-grow: 1;
+    flex-grow: 0;
     background-image: url('project://database/Assets/_Project/Sprites/bkg-street.png?fileID=2800000&guid=cc535145f2fd8a04aae50fe2f301b8c5&type=3#bkg-street');
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    position: relative;
 }

@@ -270,7 +270,6 @@ GameObject:
   m_Component:
   - component: {fileID: 521049786}
   - component: {fileID: 521049785}
-  - component: {fileID: 521049784}
   m_Layer: 0
   m_Name: battle-manager
   m_TagString: Untagged
@@ -278,22 +277,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &521049784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521049783}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: bae165df996d70a43b2c068cc84df810, type: 2}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: d553e1db5946c6b4b8d48186ad00f270, type: 3}
-  m_SortingOrder: 0
 --- !u!114 &521049785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,8 +290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterViewPrefab: {fileID: 6894483686064507268, guid: 5dca28e04393f534091dcf802478d6c9, type: 3}
-  CharacterUiTemplate: {fileID: 9197481963319205126, guid: 6427bd34c8f0583458ec0a73f100d45c, type: 3}
-  BattleUiDocument: {fileID: 521049784}
 --- !u!4 &521049786
 Transform:
   m_ObjectHideFlags: 0
@@ -335,7 +316,6 @@ GameObject:
   - component: {fileID: 560499946}
   - component: {fileID: 560499945}
   - component: {fileID: 560499947}
-  - component: {fileID: 560499948}
   m_Layer: 0
   m_Name: game-manager
   m_TagString: Untagged
@@ -355,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb84a9b7f83c7de4f8a5565d98f81f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainGameScreen: {fileID: 560499948}
+  MainGameScreen: {fileID: 0}
   AutoAttack: {fileID: 1533298688}
   Characters:
   - {fileID: 11400000, guid: 6ae3cf89350d26a45a4d4d189ec2f16b, type: 2}
@@ -366,8 +346,9 @@ MonoBehaviour:
   BattleManager: {fileID: 521049785}
   QuestManager: {fileID: 1445825790}
   QuestView: {fileID: 3695787024424618022, guid: 0934d38052cd6304983d62ab1ca1a218, type: 3}
-  QuestUiDocument: {fileID: 1445825792}
-  BattleUiDocument: {fileID: 521049784}
+  QuestUiDocument: {fileID: 0}
+  BattleUiDocument: {fileID: 0}
+  _uiManager: {fileID: 928591735}
 --- !u!4 &560499946
 Transform:
   m_ObjectHideFlags: 0
@@ -396,22 +377,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tracking: 
---- !u!114 &560499948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560499944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: bae165df996d70a43b2c068cc84df810, type: 2}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 927fd99472f91454e977e3a846327865, type: 3}
-  m_SortingOrder: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +459,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &928591732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928591733}
+  - component: {fileID: 928591735}
+  - component: {fileID: 928591734}
+  m_Layer: 0
+  m_Name: ui-manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928591733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928591732}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1668633045}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &928591734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928591732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: bae165df996d70a43b2c068cc84df810, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 927fd99472f91454e977e3a846327865, type: 3}
+  m_SortingOrder: 0
+--- !u!114 &928591735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928591732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1435679213245446980d266685b57dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wholeScreenDocument: {fileID: 928591734}
+  _questTabController: {fileID: 1668633046}
 --- !u!1 &1445825789
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +533,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1445825791}
   - component: {fileID: 1445825790}
-  - component: {fileID: 1445825792}
   m_Layer: 0
   m_Name: quest-manager
   m_TagString: Untagged
@@ -540,22 +568,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1445825792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445825789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: bae165df996d70a43b2c068cc84df810, type: 2}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 78ed5e4ff1d77f64492f1c4ada875c78, type: 3}
-  m_SortingOrder: 0
 --- !u!1 &1533298687
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +614,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1668633044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1668633045}
+  - component: {fileID: 1668633046}
+  m_Layer: 0
+  m_Name: quest-tab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1668633045
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668633044}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 928591733}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1668633046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668633044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f571a8e23b72b224bbc8bebc8cd7295d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _questViewPrefab: {fileID: 3695787024424618022, guid: 0934d38052cd6304983d62ab1ca1a218, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -612,3 +669,4 @@ SceneRoots:
   - {fileID: 560499946}
   - {fileID: 521049786}
   - {fileID: 1445825791}
+  - {fileID: 928591733}

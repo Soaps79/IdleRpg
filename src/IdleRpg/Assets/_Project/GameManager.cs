@@ -20,23 +20,30 @@ public class GameManager : QScript
 	public UIDocument QuestUiDocument;
 	public UIDocument BattleUiDocument;
 
+	[SerializeField]
+	private UiManager _uiManager;
+
 	private void Start()
 	{
-		InitializeBattleUi();
+		OnNextUpdate += BeginGame;
+	}
+
+	private void BeginGame()
+	{
+		//InitializeBattleUi();
 
 		QuestManager.Initialize(BattleManager, Characters);
 		QuestManager.BeginQuest(Quest);
-		
-		var questView = Instantiate(QuestView, transform);
-		questView.Initialize(QuestManager, MainGameScreen, QuestUiDocument);
+
+		_uiManager.QuestTabController.InitializeQuest(QuestManager);		
 	}
 
-	public void InitializeBattleUi()
-	{
-		BattleUiDocument.enabled = true;
-		BattleUiDocument.rootVisualElement.visible = false;
-		var mainWindow = MainGameScreen.rootVisualElement.Q<Box>(GameUiNames.MainWindow);
-		mainWindow.Add(BattleUiDocument.rootVisualElement);
-	}
+	//public void InitializeBattleUi()
+	//{
+	//	BattleUiDocument.enabled = true;
+	//	BattleUiDocument.rootVisualElement.visible = false;
+	//	var mainWindow = MainGameScreen.rootVisualElement.Q<Box>(GameUiNames.MainWindow);
+	//	mainWindow.Add(BattleUiDocument.rootVisualElement);
+	//}
 
 }

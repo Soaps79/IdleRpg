@@ -1,8 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/_Project/UI/battle-screen-style.uss?fileID=7433441132597879392&amp;guid=0e123fea50bc3704b9650fb2734adb63&amp;type=3#battle-screen-style" />
+    <Style src="project://database/Assets/_Project/UI/quest-view-style.uss?fileID=7433441132597879392&amp;guid=0e123fea50bc3704b9650fb2734adb63&amp;type=3#quest-view-style" />
     <ui:VisualElement name="main-bkg" class="main-bkg">
-        <ui:Box name="enemy-party" class="party-box" />
-        <ui:Box name="player-party" class="party-box" />
+        <ui:Box name="top-box" class="party-box" />
+        <ui:Box name="bottom-box" class="party-box" />
         <ui:Label tabindex="-1" text="Victory!" parse-escape-sequences="true" display-tooltip-when-elided="true" name="victory-label" class="victory-label" />
         <ui:Label tabindex="-1" text="Defeat!" parse-escape-sequences="true" display-tooltip-when-elided="true" name="defeat-label" class="defeat-label" />
     </ui:VisualElement>

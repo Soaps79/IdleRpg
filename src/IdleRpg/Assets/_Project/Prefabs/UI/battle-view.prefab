@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4285606817885295290
+--- !u!1 &8818178722497069889
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6113223340917335686}
-  - component: {fileID: 3695787024424618022}
+  - component: {fileID: 2686066337945761023}
+  - component: {fileID: 2687249637216999981}
   m_Layer: 0
-  m_Name: quest-view
+  m_Name: battle-view
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6113223340917335686
+--- !u!4 &2686066337945761023
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4285606817885295290}
+  m_GameObject: {fileID: 8818178722497069889}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,18 +32,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3695787024424618022
+--- !u!114 &2687249637216999981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4285606817885295290}
+  m_GameObject: {fileID: 8818178722497069889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98982b6dccdc2b54396c3f39173008e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a74fe0d1911f4c42b81265fe154ea70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _questUiTemplate: {fileID: 9197481963319205126, guid: d553e1db5946c6b4b8d48186ad00f270, type: 3}
-  _questProgressTemplate: {fileID: 9197481963319205126, guid: 78ed5e4ff1d77f64492f1c4ada875c78, type: 3}
-  _battleViewPrefab: {fileID: 2687249637216999981, guid: f5953fbee46386a44997cea4c64ee43c, type: 3}
+  CharacterUiTemplate: {fileID: 9197481963319205126, guid: 6427bd34c8f0583458ec0a73f100d45c, type: 3}

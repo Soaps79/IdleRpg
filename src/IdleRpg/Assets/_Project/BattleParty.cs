@@ -6,6 +6,8 @@ public class BattleParty
 {
 	private readonly List<BattleParticipant> _participants = new();
 
+	public List<BattleParticipant> Participants => _participants;
+
 	public void AddParticipant(BattleParticipant participant)
 	{
 		_participants.Add(participant);
