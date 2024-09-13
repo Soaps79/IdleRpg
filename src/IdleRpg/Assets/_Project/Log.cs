@@ -3,10 +3,16 @@
 public static class Log
 {
 	private static string _battlePrefix = "[Battle]";
+	private static string _questPrefix = "[Quest]";
 
 	public static void Battle(string message)
 	{
 		Debug.Log($"{_battlePrefix} {message}");
+	}
+
+	public static void Quest(string message)
+	{
+		Debug.Log($"{_questPrefix} {message}");
 	}
 	
 	public static void Plain(string message)

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6797a62faf00e46ad950dd1ba063c9, type: 3}
+  m_Name: quest-1
+  m_EditorClassIdentifier: 
+  MapSprite: {fileID: 21300000, guid: a9ef4e439453b144881b4fe33f9c1290, type: 3}
+  ProgressColor: {r: 0.9433962, g: 0.19134924, b: 0.19134924, a: 1}
+  BattleBackground: {fileID: 21300000, guid: cc535145f2fd8a04aae50fe2f301b8c5, type: 3}
+  EnemyParties:
+  - {fileID: 11400000, guid: f1a5289514cf5f3429aaf80adc714261, type: 2}
+  BossParty:
+  - {fileID: 11400000, guid: dd966dd21accd5d4f87c2cdaca14b9aa, type: 2}
+  BossBackground: {fileID: 21300000, guid: cc535145f2fd8a04aae50fe2f301b8c5, type: 3}
+  QuestLength: 60
+  BattleCount: 6
