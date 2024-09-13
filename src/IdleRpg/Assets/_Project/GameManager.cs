@@ -1,25 +1,18 @@
 using UnityEngine;
 using QGame;
-using UnityEngine.UIElements;
 
 public class GameManager : QScript
 {
-    public UIDocument MainGameScreen;
-	public TimedAction AutoAttack;
+	[SerializeField]
+	private CharacterSheet[] _characters;
 
-	public CharacterSheet[] Characters;
+	[SerializeField]
+	private QuestSo _quest;
 
-	public BattleCharacterView _battleCharacterView;
-
-	public QuestSo Quest;
-
-	public BattleManager BattleManager;
-	public QuestManager QuestManager;
-
-	public QuestView QuestView;
-	public UIDocument QuestUiDocument;
-	public UIDocument BattleUiDocument;
-
+	[SerializeField]
+	private BattleManager _battleManager;
+	[SerializeField]
+	private QuestManager _questManager;
 	[SerializeField]
 	private UiManager _uiManager;
 
@@ -30,20 +23,9 @@ public class GameManager : QScript
 
 	private void BeginGame()
 	{
-		//InitializeBattleUi();
+		_questManager.Initialize(_battleManager, _characters);
+		_questManager.BeginQuest(_quest);
 
-		QuestManager.Initialize(BattleManager, Characters);
-		QuestManager.BeginQuest(Quest);
-
-		_uiManager.QuestTabController.InitializeQuest(QuestManager);		
+		_uiManager.QuestTabController.InitializeQuest(_questManager);		
 	}
-
-	//public void InitializeBattleUi()
-	//{
-	//	BattleUiDocument.enabled = true;
-	//	BattleUiDocument.rootVisualElement.visible = false;
-	//	var mainWindow = MainGameScreen.rootVisualElement.Q<Box>(GameUiNames.MainWindow);
-	//	mainWindow.Add(BattleUiDocument.rootVisualElement);
-	//}
-
 }
