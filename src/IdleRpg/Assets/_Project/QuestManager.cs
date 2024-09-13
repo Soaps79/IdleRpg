@@ -7,17 +7,25 @@ using Random = UnityEngine.Random;
 
 public class QuestManager : QScript
 {
-    public float CurrentProgress = 0.0f;
+    private float CurrentProgress = 0.0f;
     
 	public QuestSo ActiveQuest { get; private set; }
     private float _questLength = 0.0f;
 	private bool _isProgressing = false;
     private float _timeSinceLastBattle = 0.0f;
 
-    private float _intervalVariance = 0.5f;
-    private float _intervalBeforeBoss = 5.0f;
+    // used in deciding timing between battles
+    [SerializeField]
+	[Tooltip("Allowed variance from interpolated battle times")]
+	private float _intervalVariance;
+	[SerializeField]
+	[Tooltip("Forced time before boss battle, should be greater than Internal Variance")]
+	private float _intervalBeforeBoss;
+	[SerializeField]
+	[Tooltip("Forced time before first battle, should be greater than Internal Variance")]
+	private float _intervalBeforeFirst;
 
-    private List<float> _battlePoints = new List<float>();
+	private List<float> _battlePoints = new List<float>();
     private float _nextBattlePoint = 0.0f;
     private int _currentBattleIndex = 0;
     private bool _nextBattleIsBoss = false;
@@ -37,10 +45,10 @@ public class QuestManager : QScript
         _isProgressing = true;
     
         _questLength = ActiveQuest.QuestLength;
-        var interval = (ActiveQuest.QuestLength - _intervalBeforeBoss) / ActiveQuest.BattleCount;
+        var interval = (ActiveQuest.QuestLength - _intervalBeforeFirst - _intervalBeforeBoss) / ActiveQuest.BattleCount;
         for (int i = 1; i <= ActiveQuest.BattleCount; i++)
         {
-			_battlePoints.Add(interval * i + Random.Range(-_intervalVariance, _intervalVariance));
+			_battlePoints.Add(_intervalBeforeFirst + interval * i + Random.Range(-_intervalVariance, _intervalVariance));
 		}
 
         _nextBattlePoint = _battlePoints[0];
