@@ -1,0 +1,7 @@
+:root {
+	--bkg: #F2E0C9;
+	--primary: #8C594D;
+	--secondary: #BF8654;
+	--accent: #51768C;
+	--dark: #261321;
+}

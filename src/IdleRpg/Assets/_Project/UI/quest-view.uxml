@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_Project/UI/quest-view-style.uss?fileID=7433441132597879392&amp;guid=0e123fea50bc3704b9650fb2734adb63&amp;type=3#quest-view-style" />
+    <Style src="project://database/Assets/_Project/UI/root.uss?fileID=7433441132597879392&amp;guid=fb63925b08c869746912bd8a6431e368&amp;type=3#root" />
     <ui:VisualElement name="main-bkg" class="main-bkg">
         <ui:Box name="top-box" class="party-box" />
         <ui:Box name="bottom-box" class="party-box" />

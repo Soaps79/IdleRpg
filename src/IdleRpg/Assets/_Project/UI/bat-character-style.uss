@@ -12,10 +12,7 @@
     padding-right: 1px;
     padding-bottom: 1px;
     padding-left: 1px;
-    border-left-color: rgb(167, 100, 13);
-    border-right-color: rgb(167, 100, 13);
-    border-top-color: rgb(167, 100, 13);
-    border-bottom-color: rgb(167, 100, 13);
+    border-color: var(--secondary);
     border-top-width: 4px;
     border-right-width: 4px;
     border-bottom-width: 4px;
@@ -24,20 +21,18 @@
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-    background-color: rgb(204, 190, 161);
+    background-color: var(--bkg);
 }
 
 .stats-and-avatar {
     flex-grow: 0;
     width: 100%;
     height: 80%;
-    background-color: rgb(255, 0, 0);
     flex-direction: row;
 }
 
 .stats-and-name {
     flex-grow: 1;
-    background-color: rgba(0, 0, 0, 0);
     width: 64%;
     height: 100%;
 }
@@ -48,6 +43,7 @@
     height: 25%;
     background-color: rgba(0, 0, 0, 0);
     background-image: url('project://database/Assets/_Project/Sprites/botton-a.png?fileID=2800000&guid=b19be535ce65c18488c63d6595eba7de&type=3#botton-a');
+    color: var(--bkg);
 }
 
 .name-label {
@@ -79,7 +75,7 @@
 
 .stat-text {
     font-size: 14px;
-    color: rgb(27, 27, 27);
+    color: var(--primary);
 }
 
 .avatar-container {
@@ -110,4 +106,9 @@
     width: 100%;
     height: 20%;
     justify-content: center;
+}
+
+.unity-base-slider > .unity-base-slider__label {
+    font-size: 14px;
+    color: var(--primary);
 }

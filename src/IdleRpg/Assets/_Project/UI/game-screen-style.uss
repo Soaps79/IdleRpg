@@ -1,22 +1,34 @@
 .section-list {
+    border-color: var(--dark);
     border-width: 2px;
-    border-color: blue;
     width: 15%;
     height: 100%;
+    background-color: var(--bkg);
+    max-width: 15%;
+    min-width: 15%;
 }
 
 .main-window {
+    border-color: var(--dark);
     border-width: 2px;
-    border-color: blue;
     width: 85%;
     height: 100%;
     flex-grow: 1;
     flex-shrink: 0;
-    background-color: rgba(195, 28, 28, 0);
+    background-color: var(--bkg);
 }
 
 .whole-screen {
     flex-direction: row;
     width: 100%;
     height: 100%;
+}
+
+.button {
+    color: var(--bkg);
+    background-color: var(--secondary);
+    border-color: var(--dark);
+    border-width: 1px;
+    -unity-font-style: bold;
+    font-size: 12px;
 }
