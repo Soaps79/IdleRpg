@@ -1,6 +1,4 @@
 .section-list {
-    border-color: var(--dark);
-    border-width: 2px;
     width: 15%;
     height: 100%;
     background-color: var(--bkg);
@@ -9,8 +7,6 @@
 }
 
 .main-window {
-    border-color: var(--dark);
-    border-width: 2px;
     width: 85%;
     height: 100%;
     flex-grow: 1;
@@ -25,10 +21,7 @@
 }
 
 .button {
-    color: var(--bkg);
-    background-color: var(--secondary);
-    border-color: var(--dark);
-    border-width: 1px;
+    background-color: var(--primary);
     -unity-font-style: bold;
     font-size: 12px;
 }

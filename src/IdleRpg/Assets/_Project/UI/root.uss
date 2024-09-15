@@ -1,7 +1,64 @@
 :root {
-	--bkg: #F2E0C9;
-	--primary: #8C594D;
-	--secondary: #BF8654;
-	--accent: #51768C;
-	--dark: #261321;
+	--bkg: #281A17;
+	--primary: #784331;
+	--secondary: #AC6B43;
+	--accent: #6E8A74;
+	--dark: #D99A49;
+	--text: #fcebc7;
+}
+
+.border-single-primary{
+	border-width: 1px;
+    border-color: var(--primary);
+}
+
+.border-single-secondary{
+	border-width: 1px;
+    border-color: var(--secondary);
+}
+
+.border-single-accent{
+	border-width: 1px;
+    border-color: var(--accent);
+}
+
+.border-single-bkg{
+	border-width: 1px;
+    border-color: var(--bkg);
+}
+
+.border-single-dark{
+	border-width: 1px;
+    border-color: var(--dark);
+}
+
+.border-regular{
+    border-width: 1px;
+    border-color: var(--primary);
+}
+
+.single-layer {
+    flex-grow: 0;
+    max-height: 32px;
+    min-height: 32px;
+    flex-shrink: 0;
+	margin-right: 1px;
+	margin-bottom: 1px;
+}
+
+.text-regular {
+    font-size: 14px;
+    color: var(--text);
+    -unity-font-definition: url('project://database/Assets/_Project/UI/Fonts/Roboto-Regular%20SDF.asset?fileID=11400000&guid=3e910a19f4a37b142a35a022b4489283&type=2#Roboto-Regular SDF');
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=fc6cf57e1e3013f4dabf4ed5809d148c&type=3#NotInter-Regular');
+    -unity-font-style: normal;
+    padding-left: 3px;
+}
+
+.text-h1 {
+    font-size: 16px;
+    color: var(--text);
+    -unity-font-definition: url('project://database/Assets/_Project/UI/Fonts/Roboto-Regular%20SDF.asset?fileID=11400000&guid=3e910a19f4a37b142a35a022b4489283&type=2#Roboto-Regular SDF');
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=fc6cf57e1e3013f4dabf4ed5809d148c&type=3#NotInter-Regular');
+    -unity-font-style: bold;
 }

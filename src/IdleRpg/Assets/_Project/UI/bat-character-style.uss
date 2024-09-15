@@ -1,27 +1,11 @@
 .character-display {
-    flex-grow: 0;
-    width: 300px;
-    height: 160px;
+    flex-grow: 1;
     position: relative;
-    max-width: 300px;
-    max-height: 160px;
-    min-width: 300px;
-    min-height: 160px;
-    flex-shrink: 0;
-    padding-top: 1px;
-    padding-right: 1px;
-    padding-bottom: 1px;
-    padding-left: 1px;
+    flex-shrink: 1;
     border-color: var(--secondary);
-    border-top-width: 4px;
-    border-right-width: 4px;
-    border-bottom-width: 4px;
-    border-left-width: 4px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    background-color: var(--bkg);
+    width: 300px;
+    max-width: 300px;
+    min-width: 300px;
 }
 
 .stats-and-avatar {
@@ -31,9 +15,9 @@
     flex-direction: row;
 }
 
-.stats-and-name {
+.stats-and-skill {
     flex-grow: 1;
-    width: 64%;
+    width: 70%;
     height: 100%;
 }
 
@@ -41,8 +25,7 @@
     flex-grow: 1;
     width: 100%;
     height: 25%;
-    background-color: rgba(0, 0, 0, 0);
-    background-image: url('project://database/Assets/_Project/Sprites/botton-a.png?fileID=2800000&guid=b19be535ce65c18488c63d6595eba7de&type=3#botton-a');
+    background-color: var(--bkg);
     color: var(--bkg);
 }
 
@@ -51,47 +34,58 @@
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
-    margin-left: 15px;
+    margin-left: 0;
     padding-top: 0;
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
     justify-content: center;
     font-size: 16px;
-    -unity-text-align: middle-left;
+    -unity-text-align: middle-center;
     color: rgb(250, 229, 207);
     -unity-font-style: bold;
 }
 
 .stat-line {
     flex-grow: 0;
-    background-color: rgba(0, 0, 0, 0);
-    width: 100%;
-    height: 30px;
+    background-color: var(--bkg);
     flex-direction: row;
     justify-content: flex-start;
-    margin-left: 8px;
+    margin-left: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
 }
 
 .stat-text {
     font-size: 14px;
-    color: var(--primary);
+    color: var(--text);
+    -unity-font-definition: url('project://database/Assets/_Project/UI/Fonts/Roboto-Regular%20SDF.asset?fileID=11400000&guid=3e910a19f4a37b142a35a022b4489283&type=2#Roboto-Regular SDF');
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=fc6cf57e1e3013f4dabf4ed5809d148c&type=3#NotInter-Regular');
+    -unity-font-style: normal;
 }
 
 .avatar-container {
     flex-grow: 1;
-    background-color: rgba(0, 0, 0, 0);
-    width: 33%;
-    height: 100%;
-    background-image: url('project://database/Assets/_Project/Sprites/button-square.png?fileID=2800000&guid=3b39f3f74945a6c4482a5e7ae5d619bd&type=3#button-square');
+    background-color: var(--bkg);
     align-items: center;
     justify-content: center;
+    width: 98px;
+    height: 98px;
+    max-width: 98px;
+    max-height: 98px;
+    min-width: 98px;
+    min-height: 98px;
 }
 
 .avatar-image {
-    flex-grow: 0;
-    width: 70%;
-    height: 70%;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
 }
 
 .death-icon {
@@ -101,14 +95,12 @@
     visibility: hidden;
 }
 
-.skill-display {
-    flex-grow: 1;
-    width: 100%;
-    height: 20%;
-    justify-content: center;
-}
-
 .unity-base-slider > .unity-base-slider__label {
     font-size: 14px;
     color: var(--primary);
+}
+
+.skill-container {
+    flex-grow: 0;
+    background-color: var(--bkg);
 }

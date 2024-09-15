@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/_Project/UI/game-screen-style.uss?fileID=7433441132597879392&amp;guid=dbada7414f2e67a49a818d38073be4a3&amp;type=3#game-screen-style" />
     <Style src="project://database/Assets/_Project/UI/root.uss?fileID=7433441132597879392&amp;guid=fb63925b08c869746912bd8a6431e368&amp;type=3#root" />
     <ui:Box name="whole-screen" class="whole-screen">
-        <ui:VisualElement name="mode-list" class="section-list" style="flex-grow: 1;">
+        <ui:VisualElement name="mode-list" class="section-list border-regular" style="flex-grow: 1;">
             <ui:Button text="Quest" parse-escape-sequences="true" display-tooltip-when-elided="true" name="button-quest" class="button" />
         </ui:VisualElement>
         <ui:Box name="main-window" class="main-window" />
