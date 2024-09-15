@@ -6,6 +6,7 @@
     width: 300px;
     max-width: 300px;
     min-width: 300px;
+    background-color: var(--bkg);
 }
 
 .stats-and-avatar {
