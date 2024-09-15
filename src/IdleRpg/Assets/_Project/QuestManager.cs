@@ -18,12 +18,6 @@ public class QuestManager : QScript
     [SerializeField]
 	[Tooltip("Allowed variance from interpolated battle times")]
 	private float _intervalVariance;
-	[SerializeField]
-	[Tooltip("Forced time before boss battle, should be greater than Internal Variance")]
-	private float _intervalBeforeBoss;
-	[SerializeField]
-	[Tooltip("Forced time before first battle, should be greater than Internal Variance")]
-	private float _intervalBeforeFirst;
 
 	private List<float> _battlePoints = new List<float>();
     private float _nextBattlePoint = 0.0f;
@@ -45,13 +39,13 @@ public class QuestManager : QScript
         _isProgressing = true;
     
         _questLength = ActiveQuest.QuestLength;
-        var interval = (ActiveQuest.QuestLength - _intervalBeforeFirst - _intervalBeforeBoss) / ActiveQuest.BattleCount;
+		var interval = ActiveQuest.QuestLength / (ActiveQuest.BattleCount + 1);
         for (int i = 1; i <= ActiveQuest.BattleCount; i++)
         {
-			_battlePoints.Add(_intervalBeforeFirst + interval * i + Random.Range(-_intervalVariance, _intervalVariance));
+			_battlePoints.Add(interval * i + Random.Range(-_intervalVariance, _intervalVariance));
 		}
 
-        _nextBattlePoint = _battlePoints[0];
+		_nextBattlePoint = _battlePoints[0];
 		Log.Quest($"Beginning quest - point: 0, {_battlePoints[0]} seconds");
 	}
 
