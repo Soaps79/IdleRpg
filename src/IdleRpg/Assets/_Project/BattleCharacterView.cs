@@ -12,6 +12,7 @@ public class BattleCharacterView : QScript
 	private const string _avatarName = "avatar-image";
 	private const string _sliderName = "cast-slider";
 	private const string _deathIconName = "death-icon";
+	private const string _skillIconImageName = "icon-image";
 
 	private Label _currentHpLabel;
 	private Label _maxHpLabel;
@@ -19,6 +20,7 @@ public class BattleCharacterView : QScript
 	private Label _maxXpLabel;
 	private Label _charNameLabel;
 	private VisualElement _deathIcon;
+	private Image _skillIconImage;
 
 	private Image _avatar;
 	private BattleParticipant _participant;
@@ -47,6 +49,7 @@ public class BattleCharacterView : QScript
 
 	private void OnSkillStart(BattleParticipant participant)
 	{
+		_skillIconImage.sprite = participant.CurrentSkillIcon;
 		_skillSlider.label = participant.CurrentSkillName;
 		OnEveryUpdate += UpdateSkillSlider;
 	}
@@ -70,6 +73,7 @@ public class BattleCharacterView : QScript
 		_avatar = uiDocument.Q<Image>(_avatarName);
 		_skillSlider = uiDocument.Q<Slider>(_sliderName);
 		_deathIcon = uiDocument.Q<VisualElement>(_deathIconName);
+		_skillIconImage = uiDocument.Q<Image>(_skillIconImageName);
 	}
 
 	private void UpdateValues()

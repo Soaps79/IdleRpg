@@ -6,7 +6,6 @@
     width: 300px;
     max-width: 300px;
     min-width: 300px;
-    background-color: var(--bkg);
 }
 
 .stats-and-avatar {
@@ -103,5 +102,21 @@
 
 .skill-container {
     flex-grow: 0;
+}
+
+.icon-container {
+    flex-grow: 1;
+    width: 32px;
+    max-width: 32px;
+    min-width: 32px;
     background-color: var(--bkg);
+}
+
+.slider-container {
+    flex-grow: 1;
+    background-color: var(--bkg);
+}
+
+.icon-image {
+    flex-grow: 1;
 }

@@ -1,5 +1,5 @@
 :root {
-	--bkg: #281A17;
+	--bkg: #160f0e;
 	--primary: #784331;
 	--secondary: #AC6B43;
 	--accent: #6E8A74;

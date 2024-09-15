@@ -23,6 +23,7 @@ public class BattleParticipant : QScript
 	private ActiveSkill _currentSkill;
 	public StopWatchNode CurrentSkillStopwatchNode { get; private set; }
 	public string CurrentSkillName => _currentSkill.SkillName;
+	public Sprite CurrentSkillIcon => _currentSkill.Icon;
 	private BattleParticipant _currentTarget;
 
 	public string NameAndId => $"{DisplayName} {ParticipantId}";

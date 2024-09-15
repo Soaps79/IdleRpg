@@ -18,3 +18,4 @@ MonoBehaviour:
   BaseDamageMax: -30
   IsAoe: 0
   Type: 2
+  Icon: {fileID: 21300000, guid: 96d080426eeefe548ad19df66769cdd1, type: 3}

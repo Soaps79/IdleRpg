@@ -17,4 +17,5 @@ public class ActiveSkill : ScriptableObject
     public int BaseDamageMax;
 	public bool IsAoe;
 	public SkillType Type;
+	public Sprite Icon;
 }

@@ -18,8 +18,13 @@
                         <ui:Label tabindex="-1" text="current" parse-escape-sequences="true" display-tooltip-when-elided="true" name="xp-current" class="text-regular" />
                         <ui:Label tabindex="-1" text="/ max" parse-escape-sequences="true" display-tooltip-when-elided="true" name="xp-max" class="text-regular" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="skill-container" class="single-layer skill-container border-regular">
-                        <ui:Slider picking-mode="Ignore" label="Slider" value="42" high-value="1" name="cast-slider" />
+                    <ui:VisualElement name="skill-container" class="skill-container" style="flex-direction: row;">
+                        <ui:VisualElement name="icon-container" class="border-regular icon-container single-layer">
+                            <ui:Image name="icon-image" class="icon-image" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="silder-container" class="single-layer border-regular slider-container" style="width: 168px;">
+                            <ui:Slider picking-mode="Ignore" label="Slider" value="42" high-value="1" name="cast-slider" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
