@@ -7,29 +7,27 @@ using static UnityEngine.Rendering.DebugUI.MessageBox;
 public class BattleCharacterView : QScript
 {
 	private const string _charNameLabelName = "name-label";
-	private const string _currentHpLabelName = "hp-current";
-	private const string _maxHpLabelName = "hp-max";
-	private const string _currentXpLabelName = "xp-current";
-	private const string _maxXpLabelName = "xp-max";
 	private const string _avatarName = "avatar-image";
-	private const string _sliderName = "cast-slider";
+	
 	private const string _deathIconName = "death-icon";
 	private const string _skillIconImageName = "icon-image";
 
-	private Label _currentHpLabel;
-	private Label _maxHpLabel;
-	private Label _currentXpLabel;
-	private Label _maxXpLabel;
+	private const string _sliderName = "cast-slider"; 
+	private const string _hpSliderName = "hp-slider";
+	private const string _xpSliderName = "xp-slider";
+
 	private Label _charNameLabel;
 	private VisualElement _deathIcon;
 	private Image _skillIconImage;
 
 	private Image _avatar;
 	private BattleParticipant _participant;
+
 	private VisualElement _skillSlider;
+	private VisualElement _hpSlider;
+	private VisualElement _xpSlider;
 
 	public string Tracking;
-	private VisualElement _barSlider;
 
 	public void BindToView(TemplateContainer uiDocument)
 	{
@@ -47,6 +45,12 @@ public class BattleCharacterView : QScript
 	{
 		SliderBindingFactory.CreateSliderBinding(_skillSlider, () => _participant.CurrentSkillName, 
 			() => _participant.CurrentSkillStopwatchNode.ElapsedLifetimeAsZeroToOne, transform);
+
+		SliderBindingFactory.CreateSliderBinding(_hpSlider, () => $"HP: {_participant.CurrentHealth} / {_participant.MaxHealth}", 
+						() => _participant.CurrentHealth / (float)_participant.MaxHealth, transform);
+
+		SliderBindingFactory.CreateSliderBinding(_xpSlider, () => $"XP: 200 / 1200",
+						() => 1, transform);
 	}
 
 	private void HandleDeath(BattleParticipant participant)
@@ -63,14 +67,12 @@ public class BattleCharacterView : QScript
 	private void FindAllElements(TemplateContainer uiDocument)
 	{
 		_charNameLabel = uiDocument.Q<Label>(_charNameLabelName);
-		_currentHpLabel = uiDocument.Q<Label>(_currentHpLabelName);
-		_maxHpLabel = uiDocument.Q<Label>(_maxHpLabelName);
-		_currentXpLabel = uiDocument.Q<Label>(_currentXpLabelName);
-		_maxXpLabel = uiDocument.Q<Label>(_maxXpLabelName);
 		_avatar = uiDocument.Q<Image>(_avatarName);
 		_skillSlider = uiDocument.Q<VisualElement>(_sliderName);
 		_deathIcon = uiDocument.Q<VisualElement>(_deathIconName);
 		_skillIconImage = uiDocument.Q<Image>(_skillIconImageName);
+		_hpSlider = uiDocument.Q<VisualElement>(_hpSliderName);
+		_xpSlider = uiDocument.Q<VisualElement>(_xpSliderName);
 	}
 
 	private void UpdateValues()
@@ -81,10 +83,6 @@ public class BattleCharacterView : QScript
 	private void UpdateValues(BattleParticipant participant)
 	{
 		_charNameLabel.text = participant.DisplayName;
-		_currentHpLabel.text = participant.CurrentHealth.ToString();
-		_maxHpLabel.text = FormatMax(participant.MaxHealth);
-		_currentXpLabel.text = "200";
-		_maxXpLabel.text = FormatMax(2400);
 		_avatar.sprite = participant.Avatar;
 	}
 

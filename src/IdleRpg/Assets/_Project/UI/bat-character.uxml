@@ -10,20 +10,18 @@
             <ui:VisualElement name="stats-side" class="stats-and-skill" style="height: 100%; width: 100%;">
                 <ui:VisualElement name="stats-container" style="flex-grow: 1; width: 100%; height: 80%;">
                     <ui:VisualElement name="hp-item" class="stat-line single-layer border-regular">
-                        <ui:Label tabindex="-1" text="HP:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="hp-label" class="text-regular" />
-                        <ui:Label tabindex="-1" text="current" parse-escape-sequences="true" display-tooltip-when-elided="true" name="hp-current" class="text-regular" />
-                        <ui:Label tabindex="-1" text="/ max" parse-escape-sequences="true" display-tooltip-when-elided="true" name="hp-max" class="text-regular" />
+                        <ui:Instance template="bar-slider" name="hp-slider" style="flex-grow: 1;" />
                     </ui:VisualElement>
                     <ui:VisualElement name="xp-item" class="stat-line single-layer border-regular">
-                        <ui:Label tabindex="-1" text="XP:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="xp-label" class="text-regular" />
-                        <ui:Label tabindex="-1" text="current" parse-escape-sequences="true" display-tooltip-when-elided="true" name="xp-current" class="text-regular" />
-                        <ui:Label tabindex="-1" text="/ max" parse-escape-sequences="true" display-tooltip-when-elided="true" name="xp-max" class="text-regular" />
+                        <ui:Instance template="bar-slider" name="xp-slider" style="flex-grow: 1;" />
                     </ui:VisualElement>
                     <ui:VisualElement name="skill-container" class="skill-container" style="flex-direction: row;">
                         <ui:VisualElement name="icon-container" class="border-regular icon-container single-layer">
                             <ui:Image name="icon-image" class="icon-image" />
                         </ui:VisualElement>
-                        <ui:Instance template="bar-slider" name="cast-slider" style="flex-grow: 1;" />
+                        <ui:VisualElement class="single-layer border-regular" style="flex-grow: 1; flex-shrink: 1; width: 100%; height: 100%;">
+                            <ui:Instance template="bar-slider" name="cast-slider" style="flex-grow: 1;" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

@@ -5,6 +5,9 @@
 	--accent: #6E8A74;
 	--dark: #D99A49;
 	--text: #fcebc7;
+    --hp: #AB2624;
+    --xp: #2670A6;
+    --skill: #3E8A47;
 }
 
 .border-single-primary{

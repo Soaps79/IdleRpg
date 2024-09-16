@@ -121,6 +121,14 @@
     flex-grow: 1;
 }
 
+#hp-slider #slider-bar {
+    -unity-background-image-tint-color: var(--hp);
+}
+
+#xp-slider #slider-bar {
+    -unity-background-image-tint-color: var(--xp);
+}
+
 #cast-slider #slider-bar {
-    -unity-background-image-tint-color: rgb(0, 147, 255);
+    -unity-background-image-tint-color: var(--skill);
 }
