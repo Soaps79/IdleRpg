@@ -19,7 +19,7 @@
                         <ui:VisualElement name="icon-container" class="border-regular icon-container single-layer">
                             <ui:Image name="icon-image" class="icon-image" />
                         </ui:VisualElement>
-                        <ui:VisualElement class="single-layer border-regular" style="flex-grow: 1; flex-shrink: 1; width: 100%; height: 100%;">
+                        <ui:VisualElement name="slider-container" class="single-layer border-regular slider-container" style="width: auto; flex-grow: 1;">
                             <ui:Instance template="bar-slider" name="cast-slider" style="flex-grow: 1;" />
                         </ui:VisualElement>
                     </ui:VisualElement>

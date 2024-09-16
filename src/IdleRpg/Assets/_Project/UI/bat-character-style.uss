@@ -51,14 +51,6 @@
     background-color: var(--bkg);
     flex-direction: row;
     justify-content: flex-start;
-    margin-left: 0;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
 }
 
 .stat-text {
@@ -112,13 +104,16 @@
     background-color: var(--bkg);
 }
 
-.slider-container {
-    flex-grow: 1;
-    background-color: var(--bkg);
-}
-
 .icon-image {
     flex-grow: 1;
+}
+
+.slider-container {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: row;
+    background-color: var(--bkg);
+    width: 100%;
 }
 
 #hp-slider #slider-bar {
