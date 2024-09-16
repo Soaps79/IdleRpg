@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/bar-slider-style.uss?fileID=7433441132597879392&amp;guid=cc82c4594084ac7469adf31290f97c5f&amp;type=3#bar-slider-style" />
+    <Style src="project://database/Assets/_Project/UI/root.uss?fileID=7433441132597879392&amp;guid=fb63925b08c869746912bd8a6431e368&amp;type=3#root" />
+    <ui:VisualElement name="bar-slider" class="slider-main">
+        <ui:VisualElement name="slider-bkg" class="slider-bkg">
+            <ui:VisualElement name="slider-bar" class="slider-bar" />
+        </ui:VisualElement>
+        <ui:VisualElement name="label-container" class="label-container">
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="label-left" class="slider-label" />
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="label-right" class="slider-label" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

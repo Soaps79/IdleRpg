@@ -1,6 +1,8 @@
 using QGame;
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI.MessageBox;
 
 public class BattleCharacterView : QScript
 {
@@ -24,9 +26,10 @@ public class BattleCharacterView : QScript
 
 	private Image _avatar;
 	private BattleParticipant _participant;
-	private Slider _skillSlider;
+	private VisualElement _skillSlider;
 
 	public string Tracking;
+	private VisualElement _barSlider;
 
 	public void BindToView(TemplateContainer uiDocument)
 	{
@@ -36,31 +39,25 @@ public class BattleCharacterView : QScript
 		_participant.OnDeath += HandleDeath;
 		Tracking = _participant.NameAndId;
 		FindAllElements(uiDocument);
+		BindSkillSlider();
 		UpdateValues();
+	}
+
+	private void BindSkillSlider()
+	{
+		SliderBindingFactory.CreateSliderBinding(_skillSlider, () => _participant.CurrentSkillName, 
+			() => _participant.CurrentSkillStopwatchNode.ElapsedLifetimeAsZeroToOne, transform);
 	}
 
 	private void HandleDeath(BattleParticipant participant)
 	{
 		Log.Battle($"View handling death of {_participant.DisplayName} {_participant.ParticipantId}");
-		OnEveryUpdate -= UpdateSkillSlider;
-		_skillSlider.value = 0;
 		_deathIcon.visible = true;
 	}
 
 	private void OnSkillStart(BattleParticipant participant)
 	{
 		_skillIconImage.sprite = participant.CurrentSkillIcon;
-		_skillSlider.label = participant.CurrentSkillName;
-		OnEveryUpdate += UpdateSkillSlider;
-	}
-
-	private void UpdateSkillSlider()
-	{
-		if(_participant.CurrentSkillStopwatchNode == null)
-		{
-			Log.Battle($"No skill node found for {_participant.DisplayName} {_participant.ParticipantId}");
-		}
-		_skillSlider.value = _participant.CurrentSkillStopwatchNode.ElapsedLifetimeAsZeroToOne;
 	}
 
 	private void FindAllElements(TemplateContainer uiDocument)
@@ -71,7 +68,7 @@ public class BattleCharacterView : QScript
 		_currentXpLabel = uiDocument.Q<Label>(_currentXpLabelName);
 		_maxXpLabel = uiDocument.Q<Label>(_maxXpLabelName);
 		_avatar = uiDocument.Q<Image>(_avatarName);
-		_skillSlider = uiDocument.Q<Slider>(_sliderName);
+		_skillSlider = uiDocument.Q<VisualElement>(_sliderName);
 		_deathIcon = uiDocument.Q<VisualElement>(_deathIconName);
 		_skillIconImage = uiDocument.Q<Image>(_skillIconImageName);
 	}

@@ -120,3 +120,7 @@
 .icon-image {
     flex-grow: 1;
 }
+
+#cast-slider #slider-bar {
+    -unity-background-image-tint-color: rgb(0, 147, 255);
+}
