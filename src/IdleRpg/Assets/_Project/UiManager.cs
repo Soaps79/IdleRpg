@@ -3,66 +3,67 @@ using QGame;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
 using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 public class UiManager : QScript
 {
-    private const string _partyButtonName = "button-party";
-    private const string _questButtonName = "button-quest";
-
+	private string _tabNameFormat = "button-";
 	private const string _viewTabName = "view-container";
 	private const string _tabLabelName = "tab-name-label";
-
 
     [SerializeField]
     private UIDocument _wholeScreenDocument;
 	[SerializeField]
 	private VisualTreeAsset _tabViewTemplate;
 
-    [SerializeField]
-    private QuestTabController _questTabController;
-	[SerializeField]
-	private PartyTabController _partyTabController;
-
+    private List<TabController> _tabControllers = new List<TabController>();
 
 	private VisualElement _mainWindow;
 
-	public QuestTabController QuestTabController { get { return _questTabController; } }
+	public QuestTabController QuestTabController { get; private set; }
+
+	public TabController[] Tabs;
 
 	private void Start()
 	{
 		_mainWindow = _wholeScreenDocument.rootVisualElement.Q<VisualElement>(GameUiNames.MainWindow);
-		
-		var tabView = CreateTabView();
-		var label = tabView.Q<Label>(_tabLabelName);
-		label.text = "Quests";		
-		_mainWindow.Add(tabView);
-		_questTabController.Initialize(tabView);
 
-		tabView = CreateTabView();
-		label = tabView.Q<Label>(_tabLabelName);
-		label.text = "Party";
-		_mainWindow.Add(tabView);
-		_partyTabController.Initialize(tabView);
+		foreach (var tab in Tabs)
+		{
+			var button = _wholeScreenDocument.rootVisualElement.Q<Button>(_tabNameFormat + tab.TabName);
+			if(button == null)
+			{
+				Debug.LogError("No button found for tab: " + tab.TabName);
+				continue;
+			}
+			var tabView = CreateTabView();
+			var label = tabView.Q<Label>(_tabLabelName);
+			label.text = "Quests";
+			_mainWindow.Add(tabView);
+			tab.Initialize(tabView);
 
-		_wholeScreenDocument.rootVisualElement.Q<Button>(_partyButtonName).clicked += () => HandlePartyButtonClicked();
-		_wholeScreenDocument.rootVisualElement.Q<Button>(_questButtonName).clicked += () => HandleQuestButtonClicked();
+			button.clicked += () => HandleButtonPushed(tab.TabName);
+			_tabControllers.Add(tab);
+			button = null;
+
+			// temp until quest flow is implemented
+			if(tab is QuestTabController)
+				QuestTabController = tab as QuestTabController;
+		}
 
 		OnNextUpdate += () =>
 		{
-			_partyTabController.SetVisible(true);
+			HandleButtonPushed("party");
 		};
 	}
 
-	private void HandlePartyButtonClicked()
+	private void HandleButtonPushed(string name)
 	{
-		_questTabController.SetVisible(false);
-		_partyTabController.SetVisible(true);
-	}
-
-	private void HandleQuestButtonClicked()
-	{
-		_questTabController.SetVisible(true);
-		_partyTabController.SetVisible(false);
+		foreach (var tab in _tabControllers)
+		{
+			tab.SetVisible(name == tab.TabName ? true : false);
+		}
 	}
 
 	private VisualElement CreateTabView()
