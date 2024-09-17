@@ -7,6 +7,7 @@ public abstract class TabController : QScript
 {
 	protected VisualElement TabView;
 	public abstract string TabName { get; }
+	public abstract string TabDisplayName { get; }
 
 	public void SetVisible(bool visible)
 	{

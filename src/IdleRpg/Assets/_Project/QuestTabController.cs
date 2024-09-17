@@ -4,8 +4,9 @@ using UnityEngine.UIElements;
 
 public class QuestTabController : TabController
 {
-	public override string TabName => "quest"; 
-	
+	public override string TabName => "quest";
+	public override string TabDisplayName => "Quest";
+
 	[SerializeField]
 	private QuestView _questViewPrefab;
 	private QuestView _questView;
