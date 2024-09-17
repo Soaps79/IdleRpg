@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/tab-view-style.uss?fileID=7433441132597879392&amp;guid=b646d4de929c1a94f8f1c73a4f699ce1&amp;type=3#tab-view-style" />
+    <Style src="project://database/Assets/_Project/UI/root.uss?fileID=7433441132597879392&amp;guid=fb63925b08c869746912bd8a6431e368&amp;type=3#root" />
+    <ui:VisualElement name="view-container" class="view-container">
+        <ui:VisualElement name="tab-name-container" class="single-layer border-regular tab-name-container">
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="tab-name-label" class="text-h1 tab-name-label" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -4,19 +4,26 @@ using UnityEngine.UIElements;
 
 public class QuestTabController : QScript
 {
-	private VisualElement _mainWindow;
+	private VisualElement _tabView;
+
+	public void SetVisible(bool visible)
+	{
+		_tabView.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
+	}
 
 	[SerializeField]
 	private QuestView _questViewPrefab;
+	private QuestView _questView;
 
-	public void Initialize(UIDocument uIDocument)
+	public void Initialize(VisualElement element)
 	{
-		_mainWindow = uIDocument.rootVisualElement.Q<VisualElement>(GameUiNames.MainWindow);
+		_tabView = element;
+		SetVisible(false);
 	}
 
 	public void InitializeQuest(QuestManager questManager)
 	{
-		var questView = Instantiate(_questViewPrefab, transform);
-		questView.Initialize(questManager, _mainWindow);
+		_questView = Instantiate(_questViewPrefab, transform);
+		_questView.Initialize(questManager, _tabView);
 	}
 }

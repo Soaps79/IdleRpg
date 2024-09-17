@@ -453,6 +453,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &748510305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748510306}
+  - component: {fileID: 748510307}
+  m_Layer: 0
+  m_Name: party-tab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &748510306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748510305}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 928591733}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &748510307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748510305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3eddaefdf5eae8469554147579e5744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _partyUiTemplate: {fileID: 9197481963319205126, guid: 828bb1e807f5a5747994306fe30ee3e6, type: 3}
 --- !u!1 &928591732
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +530,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1668633045}
+  - {fileID: 748510306}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &928591734
@@ -516,7 +562,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wholeScreenDocument: {fileID: 928591734}
+  _tabViewTemplate: {fileID: 9197481963319205126, guid: f089709faf9d9124f92a60bb482c01ab, type: 3}
   _questTabController: {fileID: 1668633046}
+  _partyTabController: {fileID: 748510307}
 --- !u!1 &1445825789
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,8 +595,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _intervalVariance: 2
-  _intervalBeforeBoss: 5
-  _intervalBeforeFirst: 5
 --- !u!4 &1445825791
 Transform:
   m_ObjectHideFlags: 0

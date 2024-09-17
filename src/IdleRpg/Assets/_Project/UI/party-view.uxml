@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
+        <ui:Label tabindex="-1" text="PARTY" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 40px; color: rgb(36, 255, 0);" />
+    </ui:VisualElement>
+</ui:UXML>

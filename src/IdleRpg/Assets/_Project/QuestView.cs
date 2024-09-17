@@ -37,6 +37,11 @@ public class QuestView : QScript
 
 	private Slider _progressSlider;
 
+	public void SetVisibility(bool visible)
+	{
+		_questUiRoot.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
+	}
+
 	public void Initialize(QuestManager questManager, VisualElement root)
     {
 		_questManager = questManager;

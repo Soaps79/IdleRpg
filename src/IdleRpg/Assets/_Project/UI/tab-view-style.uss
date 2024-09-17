@@ -1,0 +1,14 @@
+.view-container {
+    flex-grow: 1;
+    background-color: var(--bkg);
+}
+
+.tab-name-container {
+    flex-grow: 1;
+    background-color: var(--bkg);
+}
+
+.tab-name-label {
+    -unity-text-align: middle-center;
+    flex-grow: 1;
+}
