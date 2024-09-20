@@ -8,6 +8,7 @@
     --hp: rgb(171, 38, 36);
     --xp: rgb(38, 112, 166);
     --skill: rgb(62, 138, 71);
+    --inv-slot: #2d2726;
 }
 
 .border-single-primary {
@@ -61,6 +62,7 @@
     padding-right: 0px;
     padding-bottom: 0px;
     margin: 0px;
+    -unity-text-align: middle-left;
 }
 
 .text-h1 {
@@ -74,4 +76,5 @@
     padding-right: 0px;
     padding-bottom: 0px;
     margin: 0px;
+    -unity-text-align: middle-left;
 }

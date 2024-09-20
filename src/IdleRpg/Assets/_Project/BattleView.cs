@@ -37,7 +37,7 @@ public class BattleView : QScript
 		_victoryLabelElement = questView.Q<Label>(_victoryLabelName);
 		_defeatLabelElement = questView.Q<Label>(_defeatLabelName);
 
-		// for each character in Characters, init a view
+		// for each character in Characters, initialize a view
 		foreach (var participant in _battleManager.PlayerParty.Participants)
 		{
 			var view = participant.GetComponent<BattleCharacterView>();

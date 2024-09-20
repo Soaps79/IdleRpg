@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/inventory-style.uss?fileID=7433441132597879392&amp;guid=5e13d5168004c8344a6346d1d6fe2072&amp;type=3#inventory-style" />
+    <Style src="project://database/Assets/_Project/UI/root.uss?fileID=7433441132597879392&amp;guid=fb63925b08c869746912bd8a6431e368&amp;type=3#root" />
+    <ui:VisualElement name="inventory" style="flex-grow: 1; flex-shrink: 1;">
+        <ui:VisualElement name="title-bar" class="border-regular title-bar single-layer">
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="title-label" class="text-regular title-label" />
+        </ui:VisualElement>
+        <ui:VisualElement name="inv-container" class="inv-container border-regular">
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+            <ui:VisualElement name="inv-slot" class="inv-slot" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

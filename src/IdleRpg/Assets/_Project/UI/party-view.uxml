@@ -1,5 +1,25 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
-        <ui:Label tabindex="-1" text="PARTY" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 40px; color: rgb(36, 255, 0);" />
+    <ui:Template name="inventory" src="project://database/Assets/_Project/UI/inventory.uxml?fileID=9197481963319205126&amp;guid=3d4ecee3e3a7f194293f66e9323e8c00&amp;type=3#inventory" />
+    <Style src="project://database/Assets/_Project/UI/party-view-style.uss?fileID=7433441132597879392&amp;guid=1d5eacdafe6f01a4097f39bd16838646&amp;type=3#party-view-style" />
+    <Style src="project://database/Assets/_Project/UI/root.uss?fileID=7433441132597879392&amp;guid=fb63925b08c869746912bd8a6431e368&amp;type=3#root" />
+    <ui:VisualElement name="main-container" style="flex-grow: 1; align-items: center; justify-content: center; flex-direction: row;">
+        <ui:VisualElement name="left-container" style="flex-grow: 1; background-color: rgb(0, 0, 0); width: 30%; height: 100%;">
+            <ui:VisualElement name="pool-box" style="flex-grow: 1; height: 40%;">
+                <ui:Instance template="inventory" name="inventory" style="width: 100%; height: 100%; flex-grow: 1;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="parties-box" style="flex-grow: 1; height: 40%;">
+                <ui:VisualElement name="party-box" style="flex-grow: 1; height: 33%;">
+                    <ui:Instance template="inventory" name="inventory" />
+                </ui:VisualElement>
+                <ui:VisualElement name="party-box" style="flex-grow: 1; height: 33%;">
+                    <ui:Instance template="inventory" name="inventory" />
+                </ui:VisualElement>
+                <ui:VisualElement name="party-box" style="flex-grow: 1; height: 33%;">
+                    <ui:Instance template="inventory" name="inventory" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1; height: 20%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="right-container" style="flex-grow: 1; background-color: rgb(33, 255, 0); width: 70%; height: 100%;" />
     </ui:VisualElement>
 </ui:UXML>
