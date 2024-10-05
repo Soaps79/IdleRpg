@@ -19,7 +19,7 @@ public class MineManager : QScript
     private MinePath[] _minePaths;
 
     [SerializeField]
-    private OreRunner _oreRunnerPrefab;
+    private MineRunner _oreRunnerPrefab;
 
 	private void Start()
 	{

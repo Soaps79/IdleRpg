@@ -919,11 +919,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c9c8a7207166f45ba022a816cf7b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _recipes:
-  - OreType: 0
-    OreAmount: 1
-    TimeToCraft: 1
-  OreInventory:
+  Recipe:
+    Ingredients: []
+    Results:
+    - Name: ore-copper
+      Amount: 2
+    Duration: 2
+  Inventory:
     CurrentInventory: []
 --- !u!61 &1204415637
 BoxCollider2D:
@@ -1389,7 +1391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7be4b35bb1c2fb46888c3cc1e0cfd4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _oreInventory:
+  Inventory:
     CurrentInventory: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

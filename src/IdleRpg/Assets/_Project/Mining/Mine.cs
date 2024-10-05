@@ -8,11 +8,9 @@ using UnityEngine.EventSystems;
 
 public class Mine : QScript, IPointerClickHandler
 {
-    [SerializeField]
-    private OreRecipe[] _recipes;
-	public OreRecipe[] Recipes { get { return _recipes; } }
+	public ProductRecipe Recipe;
 
-    public OreInventory OreInventory = new OreInventory();
+    public ProductInventory Inventory = new ProductInventory();
 
 	public Action OnStateChanged;
 
@@ -25,40 +23,40 @@ public class Mine : QScript, IPointerClickHandler
 
 	public void StartProducing()
     {
-        foreach (var recipe in _recipes)
-        {
-            var obj = new GameObject($"{recipe.OreType}-crafting-container");
-            obj.transform.parent = transform;
-            CraftingContainer = obj.GetOrAddComponent<CraftingContainer>();
-			CraftingContainer.OnCraftComplete += OnCraftComplete;
-			CraftingContainer.BeginCrafting(recipe);
-		}
+        var obj = new GameObject($"{name}-crafting-container");
+        obj.transform.parent = transform;
+        CraftingContainer = obj.GetOrAddComponent<CraftingContainer>();
+		CraftingContainer.OnCraftComplete += OnCraftComplete;
+		CraftingContainer.BeginCrafting(Recipe);
     }
 
-	private void OnCraftComplete(OreRecipe recipe)
+	private void OnCraftComplete(ProductRecipe recipe)
 	{
-		OreInventory.AddOre(recipe.OreType, recipe.OreAmount);
+		foreach (var result in recipe.Results)
+		{
+			Inventory.AddProduct(result.Name, result.Amount);
+		}
 		OnStateChanged?.Invoke();
 	}
 
-    public List<OreAmount> GetOre(int amount)
+    public List<ProductAmount> GetProducts(int amount)
     {
-        var result = new List<OreAmount>();
+        var result = new List<ProductAmount>();
 		var remainingAmount = amount;
 
-        foreach (var ore in OreInventory.CurrentInventory.ToList())
+        foreach (var product in Inventory.CurrentInventory.ToList())
         {
-			if (ore.Amount >= remainingAmount)
+			if (product.Amount >= remainingAmount)
             {
-				OreInventory.RemoveOre(ore.OreType, amount);
-				result.Add(new OreAmount(ore.OreType, amount));
+				Inventory.RemoveProduct(product.Name, amount);
+				result.Add(new ProductAmount(product.Name, amount));
 				remainingAmount = 0;
 			}
 			else
             {
-				OreInventory.RemoveOre(ore.OreType, ore.Amount);
-				result.Add(new OreAmount(ore.OreType, ore.Amount));
-				remainingAmount -= ore.Amount;
+				Inventory.RemoveProduct(product.Name, product.Amount);
+				result.Add(new ProductAmount(product.Name, product.Amount));
+				remainingAmount -= product.Amount;
 			}
 			if (remainingAmount == 0)
 				break;
@@ -74,7 +72,6 @@ public class Mine : QScript, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		Debug.Log("Mine clicked");
 		OnNextUpdate += () =>
 		{
 			Locator.UIManager.RequestMineOverlay(this);

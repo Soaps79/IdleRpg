@@ -4,9 +4,9 @@ using System;
 using UnityEngine.Splines;
 
 [RequireComponent(typeof(SplineAnimate))]
-public class OreRunner : QScript
+public class MineRunner : QScript
 {
-    public OreInventory OreInventory = new OreInventory();
+    public ProductInventory OreInventory = new ProductInventory();
 
 	[SerializeField]
 	private float _upperEnd;
@@ -15,8 +15,8 @@ public class OreRunner : QScript
 	[SerializeField]
 	private int _baseCapacity;
 
-    public Action<OreRunner> OnReachMine;
-    public Action<OreRunner> OnReachTown;
+    public Action<MineRunner> OnReachMine;
+    public Action<MineRunner> OnReachTown;
 
 	[SerializeField]
 	private bool _movingTowardsMine = true;
@@ -60,10 +60,10 @@ public class OreRunner : QScript
 	private void HandleReachMine()
 	{
 		_movingTowardsMine = false;
-		var ore = _mine.GetOre(_baseCapacity);
+		var ore = _mine.GetProducts(_baseCapacity);
 		foreach (var oreAmount in ore)
 		{
-			OreInventory.AddOre(oreAmount.OreType, oreAmount.Amount);
+			OreInventory.AddProduct(oreAmount);
 		}
 		OnReachMine?.Invoke(this);
 	}
@@ -74,7 +74,7 @@ public class OreRunner : QScript
 		var purge = OreInventory.Purge();
 		foreach (var oreAmount in purge)
 		{
-			_home.IntakeOre(oreAmount.OreType, oreAmount.Amount);
+			_home.Inventory.AddProduct(oreAmount);
 		}
 		OnReachMine?.Invoke(this);
 	}

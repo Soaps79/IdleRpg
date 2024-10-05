@@ -48,11 +48,11 @@ public class MineView : QScript
 		{
 			var display = _oreContainer.Q<VisualElement>($"ore-{i}");
 
-			if (i < _mine.Recipes.Count())
+			if (i < _mine.Recipe.Results.Length)
 			{
-				display.Q<Label>(_oreNameLabelName).text = _mine.Recipes[i].OreType.ToString();
-				display.Q<Label>(_amountLabelName).text = _mine.Recipes[i].OreAmount.ToString();
-				display.Q<Label>(_invLabelName).text = _mine.OreInventory.GetCurrentAmountOfOre(_mine.Recipes[i].OreType).ToString();
+				display.Q<Label>(_oreNameLabelName).text = _mine.Recipe.Results[i].Name;
+				display.Q<Label>(_amountLabelName).text = _mine.Recipe.Results[i].Amount.ToString();
+				display.Q<Label>(_invLabelName).text = _mine.Inventory.GetCurrentAmount(_mine.Recipe.Results[i].Name).ToString();
 			}
 			else
 			{

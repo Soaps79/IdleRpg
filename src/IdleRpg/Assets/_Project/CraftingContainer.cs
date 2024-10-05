@@ -1,23 +1,21 @@
 using UnityEngine;
 using QGame;
-using System.Collections.Generic;
 using System;
 
 public class CraftingContainer : QScript
 {
 	private bool _isCrafting;
-	[SerializeField]
-	private OreRecipe _currentRecipe;
+	public ProductRecipe CurrentRecipe;
 
 	private float _elapsedTime;
 	private float _craftTime;
 
-	public Action<OreRecipe> OnCraftComplete;
+	public Action<ProductRecipe> OnCraftComplete;
 
-	public void BeginCrafting(OreRecipe recipe)
+	public void BeginCrafting(ProductRecipe recipe)
 	{
-		_currentRecipe = recipe;
-		_craftTime = recipe.TimeToCraft;
+		CurrentRecipe = recipe;
+		_craftTime = recipe.Duration;
 		_isCrafting = true;
 	}
 
@@ -33,7 +31,7 @@ public class CraftingContainer : QScript
 			if (_elapsedTime >= _craftTime)
 			{
 				_elapsedTime -= _craftTime;
-				OnCraftComplete?.Invoke(_currentRecipe);
+				OnCraftComplete?.Invoke(CurrentRecipe);
 			}
 		} while (_elapsedTime >= _craftTime);
 	}
