@@ -23,6 +23,12 @@ public class OreAmount
 {
 	public OreTypes OreType;
 	public int Amount;
+	public OreAmount() { }
+	public OreAmount(OreTypes oreType, int amount)
+	{
+		OreType = oreType;
+		Amount = amount;
+	}
 }
 
 [Serializable]
@@ -65,5 +71,16 @@ public class OreInventory
 			inventory.Add(new OreAmount { OreType = kvp.Key, Amount = kvp.Value });
 		}
 		CurrentInventory = inventory.ToArray();
+	}
+
+	public List<OreAmount> Purge()
+	{
+		var result = new List<OreAmount>();
+		foreach (var kvp in _inventory)
+		{
+			result.Add(new OreAmount { OreType = kvp.Key, Amount = kvp.Value });
+		}
+		_inventory.Clear();
+		return result;
 	}
 }

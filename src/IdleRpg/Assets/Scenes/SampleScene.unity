@@ -433,6 +433,8 @@ Transform:
   m_Children:
   - {fileID: 2002781950}
   - {fileID: 1204415634}
+  - {fileID: 1746874938}
+  - {fileID: 1979649034}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &560499944
@@ -538,7 +540,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000615a4bc59342313f
+  m_ApplyToSortingLayers: 00000000615a4bc59342313f6bb4a0ca119828fb
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -770,7 +772,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1060192915
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9e918645a35360e4b9fce15e3712ac12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -891,6 +893,207 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questViewPrefab: {fileID: 3695787024424618022, guid: 0934d38052cd6304983d62ab1ca1a218, type: 3}
+--- !u!1 &1746874937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1746874938}
+  - component: {fileID: 1746874939}
+  m_Layer: 0
+  m_Name: mine-1-path
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1746874938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746874937}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.3542917, y: -0.4620331, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 531602008}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1746874939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746874937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 0
+        y: 0
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.19859602
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.19859602
+      Rotation:
+        value:
+          x: -0.50936496
+          y: -0.49045625
+          z: 0.4904562
+          w: 0.50936496
+    - Position:
+        x: -1.98454
+        y: 0.07509071
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.6095008
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.54507107
+      Rotation:
+        value:
+          x: -0.56087935
+          y: -0.4305977
+          z: 0.4305977
+          w: 0.5608793
+    - Position:
+        x: -3.3898091
+        y: 0.8152704
+        z: 0
+      TangentIn:
+        x: 0
+        y: 0
+        z: -0.6056678
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.41594535
+      Rotation:
+        value:
+          x: 0.7019912
+          y: 0.08490217
+          z: -0.08490205
+          w: -0.70199114
+    - Position:
+        x: -2.7461743
+        y: 1.4374506
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.08951949
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.08951949
+      Rotation:
+        value:
+          x: 0.6509651
+          y: -0.27612388
+          z: 0.27612418
+          w: -0.650965
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
+--- !u!1 &1979649033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1979649034}
+  - component: {fileID: 1979649035}
+  m_Layer: 0
+  m_Name: mine-manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1979649034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979649033}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.170024, y: -0.19965525, z: 0.008510334}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 531602008}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1979649035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979649033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de3c168354767648b76dcb0acec69fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _home: {fileID: 2002781952}
+  _minePaths:
+  - Path: {fileID: 1746874939}
+    Mine: {fileID: 1204415636}
+  _oreRunnerPrefab: {fileID: 4371870478906983437, guid: 01a5dde3e7e54fe4ebcf6dbd189eef08, type: 3}
 --- !u!1 &2002781949
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,7 +1166,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1060192915
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 868cb1638e17c90488becb0551438a17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
