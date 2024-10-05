@@ -4,14 +4,19 @@ using Unity.VisualScripting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.EventSystems;
 
-public class Mine : QScript
+public class Mine : QScript, IPointerClickHandler
 {
     [SerializeField]
     private OreRecipe[] _recipes;
+	public OreRecipe[] Recipes { get { return _recipes; } }
 
-    [SerializeField]
-    private OreInventory _inventory = new OreInventory();
+    public OreInventory OreInventory = new OreInventory();
+
+	public Action OnStateChanged;
+
+	public CraftingContainer CraftingContainer { get; private set; }
 
 	private void Start()
 	{
@@ -24,15 +29,16 @@ public class Mine : QScript
         {
             var obj = new GameObject($"{recipe.OreType}-crafting-container");
             obj.transform.parent = transform;
-            var container = obj.GetOrAddComponent<CraftingContainer>();
-			container.OnCraftComplete += OnCraftComplete;
-			container.BeginCrafting(recipe);
+            CraftingContainer = obj.GetOrAddComponent<CraftingContainer>();
+			CraftingContainer.OnCraftComplete += OnCraftComplete;
+			CraftingContainer.BeginCrafting(recipe);
 		}
     }
 
 	private void OnCraftComplete(OreRecipe recipe)
 	{
-		_inventory.AddOre(recipe.OreType, recipe.OreAmount);
+		OreInventory.AddOre(recipe.OreType, recipe.OreAmount);
+		OnStateChanged?.Invoke();
 	}
 
     public List<OreAmount> GetOre(int amount)
@@ -40,17 +46,17 @@ public class Mine : QScript
         var result = new List<OreAmount>();
 		var remainingAmount = amount;
 
-        foreach (var ore in _inventory.CurrentInventory.ToList())
+        foreach (var ore in OreInventory.CurrentInventory.ToList())
         {
 			if (ore.Amount >= remainingAmount)
             {
-				_inventory.RemoveOre(ore.OreType, amount);
+				OreInventory.RemoveOre(ore.OreType, amount);
 				result.Add(new OreAmount(ore.OreType, amount));
 				remainingAmount = 0;
 			}
 			else
             {
-				_inventory.RemoveOre(ore.OreType, ore.Amount);
+				OreInventory.RemoveOre(ore.OreType, ore.Amount);
 				result.Add(new OreAmount(ore.OreType, ore.Amount));
 				remainingAmount -= ore.Amount;
 			}
@@ -60,6 +66,18 @@ public class Mine : QScript
 				throw new Exception("Mine ore removal algo went negative");
 		}
 
+		if(result.Any(i => i.Amount > 0))
+			OnStateChanged?.Invoke();
+
 		return result;
     }
+
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		Debug.Log("Mine clicked");
+		OnNextUpdate += () =>
+		{
+			Locator.UIManager.RequestMineOverlay(this);
+		};
+	}
 }

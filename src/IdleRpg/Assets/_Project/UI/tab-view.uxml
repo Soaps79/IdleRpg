@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/_Project/UI/tab-view-style.uss?fileID=7433441132597879392&amp;guid=b646d4de929c1a94f8f1c73a4f699ce1&amp;type=3#tab-view-style" />
     <Style src="project://database/Assets/_Project/UI/root.uss?fileID=7433441132597879392&amp;guid=fb63925b08c869746912bd8a6431e368&amp;type=3#root" />
-    <ui:VisualElement name="view-container" class="view-container">
+    <ui:VisualElement name="view-container" picking-mode="Ignore" class="view-container">
         <ui:VisualElement name="tab-name-container" class="tab-name-container single-layer border-regular" style="background-color: rgb(22, 15, 14);">
             <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="tab-name-label" class="text-h1 tab-name-label" />
         </ui:VisualElement>

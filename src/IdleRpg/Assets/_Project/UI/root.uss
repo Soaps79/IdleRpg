@@ -9,6 +9,7 @@
     --xp: rgb(38, 112, 166);
     --skill: rgb(62, 138, 71);
     --inv-slot: #2d2726;
+    --mine: rgb(38, 112, 166);
 }
 
 .border-single-primary {
@@ -62,6 +63,7 @@
     padding-right: 0px;
     padding-bottom: 0px;
     margin: 0px;
+    flex-grow: 1;
     -unity-text-align: middle-left;
 }
 
@@ -76,5 +78,6 @@
     padding-right: 0px;
     padding-bottom: 0px;
     margin: 0px;
+    flex-grow: 1;
     -unity-text-align: middle-left;
 }

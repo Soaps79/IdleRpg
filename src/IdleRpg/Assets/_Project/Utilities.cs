@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 using System.Collections;
+using QGame;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -296,3 +298,12 @@ using UnityEditor;
 			Debug.Log("RunTime " + elapsedTime + "; " + log);
 		}
 	}
+
+// wraps ServiceLocator for easy access within project
+public static class Locator
+{
+	public static UiManager UIManager
+	{
+		get { return ServiceLocator.Get<UiManager>(); }
+	}
+}

@@ -1,0 +1,34 @@
+.name-plate {
+    background-color: var(--bkg);
+}
+
+.name-label {
+    flex-grow: 1;
+    -unity-text-align: upper-center;
+}
+
+#mine-slider #slider-bar {
+    -unity-background-image-tint-color: var(--mine);
+}
+
+.ore-container {
+    flex-grow: 1;
+    background-color: rgba(200, 76, 76, 0);
+}
+
+.single-ore {
+    background-color: var(--bkg);
+}
+
+.icon-image {
+    width: auto;
+    height: auto;
+    min-width: 15%;
+    max-width: 15%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    background-color: rgb(255, 0, 0);
+}
+
+.ore-label-sizing {
+}

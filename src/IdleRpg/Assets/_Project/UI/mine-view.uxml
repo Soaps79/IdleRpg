@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="bar-slider" src="project://database/Assets/_Project/UI/bar-slider.uxml?fileID=9197481963319205126&amp;guid=fe891d41d78a93748b1bbfb8cf5170a2&amp;type=3#bar-slider" />
+    <Style src="project://database/Assets/_Project/UI/mine-view-style.uss?fileID=7433441132597879392&amp;guid=537191c997e217143ac6cf5032017c83&amp;type=3#mine-view-style" />
+    <Style src="project://database/Assets/_Project/UI/root.uss?fileID=7433441132597879392&amp;guid=fb63925b08c869746912bd8a6431e368&amp;type=3#root" />
+    <ui:VisualElement name="mine-view-container" style="flex-grow: 1; width: 200px; position: absolute;">
+        <ui:VisualElement name="name-plate" class="single-layer border-regular name-plate">
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="name-label" class="text-h1 name-label" style="-unity-text-align: middle-center;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="slider-container" class="single-layer" style="flex-grow: 1;">
+            <ui:Instance template="bar-slider" name="mine-slider" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="ore-container" class="ore-container">
+            <ui:VisualElement name="ore-0" class="single-layer border-regular ore-container single-ore" style="flex-direction: row;">
+                <ui:VisualElement name="icon-image" class="icon-image" />
+                <ui:Label tabindex="-1" text="Copper" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ore-name-label" class="text-regular ore-label-sizing" />
+                <ui:Label tabindex="-1" text="+888" parse-escape-sequences="true" display-tooltip-when-elided="true" name="amount-label" class="text-regular ore-label-sizing" style="max-width: 20%; min-width: 15%;" />
+                <ui:Label tabindex="-1" text="21.51k" parse-escape-sequences="true" display-tooltip-when-elided="true" name="inv-label" class="text-regular ore-label-sizing" style="max-width: 25%; min-width: 25%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="ore-1" class="single-layer border-regular ore-container single-ore" style="flex-direction: row;">
+                <ui:VisualElement name="icon-image" class="icon-image" />
+                <ui:Label tabindex="-1" text="Copper" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ore-name-label" class="text-regular ore-label-sizing" />
+                <ui:Label tabindex="-1" text="+888" parse-escape-sequences="true" display-tooltip-when-elided="true" name="amount-label" class="text-regular ore-label-sizing" style="max-width: 20%; min-width: 15%;" />
+                <ui:Label tabindex="-1" text="21.51k" parse-escape-sequences="true" display-tooltip-when-elided="true" name="inv-label" class="text-regular ore-label-sizing" style="max-width: 25%; min-width: 25%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="ore-2" class="single-layer border-regular ore-container single-ore" style="flex-direction: row;">
+                <ui:VisualElement name="icon-image" class="icon-image" />
+                <ui:Label tabindex="-1" text="Copper" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ore-name-label" class="text-regular ore-label-sizing" />
+                <ui:Label tabindex="-1" text="+888" parse-escape-sequences="true" display-tooltip-when-elided="true" name="amount-label" class="text-regular ore-label-sizing" style="max-width: 20%; min-width: 15%;" />
+                <ui:Label tabindex="-1" text="21.51k" parse-escape-sequences="true" display-tooltip-when-elided="true" name="inv-label" class="text-regular ore-label-sizing" style="max-width: 25%; min-width: 25%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

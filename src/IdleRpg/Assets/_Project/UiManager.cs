@@ -2,22 +2,40 @@ using UnityEngine;
 using QGame;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class UiManager : QScript
 {
 	private string _tabNameFormat = "button-";
 	private const string _viewTabName = "view-container";
 	private const string _tabLabelName = "tab-name-label";
+	private const string _tooltipLayerName = "tooltip-layer";
+
+	[SerializeField]
+	private string _startingTab;
 
 	// document that contains the whole game UI
 	[SerializeField]
 	private UIDocument _wholeScreenDocument;
+
+	[SerializeField]
+	private Vector2 _tooltipOffset;
+
+	private VisualElement _root;
+
 	// window that holds all tab views
 	private VisualElement _mainWindow;
+
+	// layer on which tooltips are created, captures events to clear them
+	private VisualElement _tooltipLayer;
 
 	// prefab for container for all tab views
 	[SerializeField]
 	private VisualTreeAsset _tabViewTemplate;
+
+	// prefabs for tooltips - move these somewhere else once a pattern emerges
+	[SerializeField]
+	private VisualTreeAsset _mineTooltipTemplate;
 
 	private List<TabController> _tabControllers = new List<TabController>();
 
@@ -26,9 +44,18 @@ public class UiManager : QScript
 	// place all tabs in here to be considered in-game
 	public TabController[] Tabs;
 
+	private void Awake()
+	{
+		ServiceLocator.Register<UiManager>(this);
+	}
+
 	private void Start()
 	{
+		_root = _wholeScreenDocument.rootVisualElement;
 		_mainWindow = _wholeScreenDocument.rootVisualElement.Q<VisualElement>(GameUiNames.MainWindow);
+
+		_tooltipLayer = _wholeScreenDocument.rootVisualElement.Q<VisualElement>(_tooltipLayerName);
+		_tooltipLayer.RegisterCallback<ClickEvent>(evt => ClearTooltips());
 
 		foreach (var tab in Tabs)
 		{
@@ -59,7 +86,7 @@ public class UiManager : QScript
 
 		OnNextUpdate += () =>
 		{
-			HandleButtonPushed("party");
+			HandleButtonPushed(string.IsNullOrWhiteSpace(_startingTab) ? "party" : _startingTab);
 		};
 	}
 
@@ -86,5 +113,39 @@ public class UiManager : QScript
 		var label = tabView.Q<Label>(_tabLabelName);
 		label.style.unityTextAlign = TextAnchor.MiddleCenter;
 		label.style.flexGrow = 1;
+	}
+
+	public void RequestMineOverlay(Mine mine)
+	{
+		ClearTooltips();
+
+		var obj = new GameObject("mine-tooltip");
+		var mineView = obj.GetOrAddComponent<MineView>();
+		var tooltipView = _mineTooltipTemplate.Instantiate();
+		tooltipView.style.flexGrow = 1;
+		_tooltipLayer.Add(tooltipView);
+
+		var panel = _root.panel;
+		var pos = RuntimePanelUtils.CameraTransformWorldToPanel(panel, mine.transform.position, Camera.main);
+
+		// TODO: Figure out offset
+		// tooltipView.resolvedStyle.height should work but is not set until it is drawn
+		tooltipView.style.top = pos.y;
+		tooltipView.style.left = pos.x;
+
+		mineView.Bind(tooltipView, mine);
+
+		AllowTooltipClose();
+	}
+
+	private void ClearTooltips()
+	{
+		_tooltipLayer.Clear();
+		_tooltipLayer.pickingMode = PickingMode.Ignore;
+	}
+
+	private void AllowTooltipClose()
+	{
+		_tooltipLayer.pickingMode = PickingMode.Position;
 	}
 }

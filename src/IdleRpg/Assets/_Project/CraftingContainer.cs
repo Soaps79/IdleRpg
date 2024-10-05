@@ -37,6 +37,17 @@ public class CraftingContainer : QScript
 			}
 		} while (_elapsedTime >= _craftTime);
 	}
+
+	public float CurrentCraftProgress
+	{
+		get
+		{
+			if (!_isCrafting)
+				return 0;
+
+			return _elapsedTime / _craftTime;
+		}
+	}
 }
 
 
