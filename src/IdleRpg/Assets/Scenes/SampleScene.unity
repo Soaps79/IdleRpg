@@ -708,8 +708,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1204415634}
   - component: {fileID: 1204415635}
+  - component: {fileID: 1204415636}
   m_Layer: 0
-  m_Name: bld-mine
+  m_Name: mine-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -782,6 +783,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1204415636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204415633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c9c8a7207166f45ba022a816cf7b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recipes:
+  - OreType: 0
+    OreAmount: 1
+    TimeToCraft: 2
+  _inventory:
+    CurrentInventory: []
 --- !u!1 &1445825789
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,8 +901,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2002781950}
   - component: {fileID: 2002781951}
+  - component: {fileID: 2002781952}
   m_Layer: 0
-  m_Name: bld-house1
+  m_Name: home
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -956,6 +976,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2002781952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002781949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7be4b35bb1c2fb46888c3cc1e0cfd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _oreInventory:
+    CurrentInventory: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
