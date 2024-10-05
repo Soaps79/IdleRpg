@@ -1,6 +1,5 @@
 .view-container {
     flex-grow: 1;
-    background-color: var(--bkg);
 }
 
 .tab-name-container {
