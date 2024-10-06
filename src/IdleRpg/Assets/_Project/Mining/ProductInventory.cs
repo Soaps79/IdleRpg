@@ -4,35 +4,35 @@ using System;
 [Serializable]
 public class ProductInventory
 {
-	private Dictionary<string, int> _inventory = new Dictionary<string, int>();
+	private Dictionary<ProductSO, int> _inventory = new Dictionary<ProductSO, int>();
 	public ProductAmount[] CurrentInventory;
 
 	public void AddProduct(ProductAmount oreAmount)
 	{
-		AddProduct(oreAmount.Name, oreAmount.Amount);
+		AddProduct(oreAmount.Product, oreAmount.Amount);
 	}
 
-	public void AddProduct(string productName, int amount)
+	public void AddProduct(ProductSO product, int amount)
 	{
-		if (_inventory.ContainsKey(productName))
+		if (_inventory.ContainsKey(product))
 		{
-			_inventory[productName] += amount;
+			_inventory[product] += amount;
 		}
 		else
 		{
-			_inventory.Add(productName, amount);
+			_inventory.Add(product, amount);
 		}
 		SetDisplayInventory();
 	}
 
-	public void RemoveProduct(string productName, int amount)
+	public void RemoveProduct(ProductSO product, int amount)
 	{
-		if (_inventory.ContainsKey(productName))
+		if (_inventory.ContainsKey(product))
 		{
-			_inventory[productName] -= Math.Min(amount, _inventory[productName]);
-			if (_inventory[productName] <= 0)
+			_inventory[product] -= Math.Min(amount, _inventory[product]);
+			if (_inventory[product] <= 0)
 			{
-				_inventory.Remove(productName);
+				_inventory.Remove(product);
 			}
 		}
 		SetDisplayInventory();
@@ -60,11 +60,11 @@ public class ProductInventory
 		return result;
 	}
 
-	public int GetCurrentAmount(string productName)
+	public int GetCurrentAmount(ProductSO product)
 	{
-		if (_inventory.ContainsKey(productName))
+		if (_inventory.ContainsKey(product))
 		{
-			return _inventory[productName];
+			return _inventory[product];
 		}
 		return 0;
 	}

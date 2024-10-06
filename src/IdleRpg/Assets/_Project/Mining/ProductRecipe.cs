@@ -3,13 +3,13 @@ using System;
 [Serializable]
 public class ProductAmount
 {
-    public string Name;
+    public ProductSO Product;
     public int Amount;
 
     public ProductAmount() { }
-    public ProductAmount(string name, int amount)
+    public ProductAmount(ProductSO product, int amount)
     {
-		Name = name;
+        Product = product;                                             
 		Amount = amount;
 	}
 }

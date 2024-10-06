@@ -50,9 +50,9 @@ public class MineView : QScript
 
 			if (i < _mine.Recipe.Results.Length)
 			{
-				display.Q<Label>(_oreNameLabelName).text = _mine.Recipe.Results[i].Name;
+				display.Q<Label>(_oreNameLabelName).text = _mine.Recipe.Results[i].Product.DisplayName;
 				display.Q<Label>(_amountLabelName).text = _mine.Recipe.Results[i].Amount.ToString();
-				display.Q<Label>(_invLabelName).text = _mine.Inventory.GetCurrentAmount(_mine.Recipe.Results[i].Name).ToString();
+				display.Q<Label>(_invLabelName).text = _mine.Inventory.GetCurrentAmount(_mine.Recipe.Results[i].Product).ToString();
 			}
 			else
 			{

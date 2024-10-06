@@ -922,7 +922,7 @@ MonoBehaviour:
   Recipe:
     Ingredients: []
     Results:
-    - Name: ore-copper
+    - Product: {fileID: 11400000, guid: c6dffb935d4cc2840a2075ddfd25f4ac, type: 2}
       Amount: 2
     Duration: 2
   Inventory:

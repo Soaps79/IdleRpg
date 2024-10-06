@@ -34,7 +34,7 @@ public class Mine : QScript, IPointerClickHandler
 	{
 		foreach (var result in recipe.Results)
 		{
-			Inventory.AddProduct(result.Name, result.Amount);
+			Inventory.AddProduct(result.Product, result.Amount);
 		}
 		OnStateChanged?.Invoke();
 	}
@@ -44,19 +44,19 @@ public class Mine : QScript, IPointerClickHandler
         var result = new List<ProductAmount>();
 		var remainingAmount = amount;
 
-        foreach (var product in Inventory.CurrentInventory.ToList())
+        foreach (var productAmount in Inventory.CurrentInventory.ToList())
         {
-			if (product.Amount >= remainingAmount)
+			if (productAmount.Amount >= remainingAmount)
             {
-				Inventory.RemoveProduct(product.Name, amount);
-				result.Add(new ProductAmount(product.Name, amount));
+				Inventory.RemoveProduct(productAmount.Product, amount);
+				result.Add(productAmount);
 				remainingAmount = 0;
 			}
 			else
             {
-				Inventory.RemoveProduct(product.Name, product.Amount);
-				result.Add(new ProductAmount(product.Name, product.Amount));
-				remainingAmount -= product.Amount;
+				Inventory.RemoveProduct(productAmount.Product, productAmount.Amount);
+				result.Add(productAmount);
+				remainingAmount -= productAmount.Amount;
 			}
 			if (remainingAmount == 0)
 				break;
