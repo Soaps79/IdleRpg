@@ -28,7 +28,7 @@ public class MineManager : QScript
 
 	private void AddRunnerOnPath(MinePath minePath)
     {
-		var runner = Instantiate(_oreRunnerPrefab, minePath.Mine.transform);
+		var runner = Instantiate(_oreRunnerPrefab, transform);
         var animator = runner.GetComponent<SplineAnimate>();
         animator.Container = minePath.Path;
         animator.enabled = true;

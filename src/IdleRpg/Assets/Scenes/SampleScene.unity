@@ -927,6 +927,7 @@ MonoBehaviour:
     Duration: 2
   Inventory:
     CurrentInventory: []
+    LeaveEmptyElements: 0
 --- !u!61 &1204415637
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1393,6 +1394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inventory:
     CurrentInventory: []
+    LeaveEmptyElements: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

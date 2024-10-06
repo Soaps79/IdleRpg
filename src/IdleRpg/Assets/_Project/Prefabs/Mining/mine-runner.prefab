@@ -27,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2965432991252971505}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6936099, y: -0.72035086, z: -0.0000000842937, w: -0.00000004214685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -81225711
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2aeba8ed4a47b99459e75d2692616a7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0bd0e64a160bd942b63fe65892c5017, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Duration: 4.6513767
   m_MaxSpeed: 1
   m_EasingMode: 0
-  m_AlignmentMode: 1
-  m_ObjectForwardAxis: 1
+  m_AlignmentMode: 0
+  m_ObjectForwardAxis: 0
   m_ObjectUpAxis: 2
   m_StartOffset: 0
 --- !u!114 &4371870478906983437
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OreInventory:
     CurrentInventory: []
+    LeaveEmptyElements: 0
   _upperEnd: 0.95
   _lowerEnd: 0.05
   _baseCapacity: 6

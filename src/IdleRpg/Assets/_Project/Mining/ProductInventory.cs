@@ -7,6 +7,10 @@ public class ProductInventory
 	private Dictionary<ProductSO, int> _inventory = new Dictionary<ProductSO, int>();
 	public ProductAmount[] CurrentInventory;
 
+	public Action<ProductAmount> OnAmountChanged;
+
+	public bool LeaveEmptyElements;
+
 	public void AddProduct(ProductAmount oreAmount)
 	{
 		AddProduct(oreAmount.Product, oreAmount.Amount);
@@ -23,6 +27,14 @@ public class ProductInventory
 			_inventory.Add(product, amount);
 		}
 		SetDisplayInventory();
+		OnAmountChanged?.Invoke(new ProductAmount(product, amount));
+	}
+
+	// Remove functions currently assume that there is always enough product
+	// will need work for partial results if needed
+	public void RemoveProduct(ProductAmount productAmount) 
+	{
+		RemoveProduct(productAmount.Product, productAmount.Amount);
 	}
 
 	public void RemoveProduct(ProductSO product, int amount)
@@ -30,12 +42,13 @@ public class ProductInventory
 		if (_inventory.ContainsKey(product))
 		{
 			_inventory[product] -= Math.Min(amount, _inventory[product]);
-			if (_inventory[product] <= 0)
+			if (!LeaveEmptyElements && _inventory[product] <= 0)
 			{
 				_inventory.Remove(product);
 			}
 		}
 		SetDisplayInventory();
+		OnAmountChanged?.Invoke(new ProductAmount(product, -amount));
 	}
 
 	private void SetDisplayInventory()

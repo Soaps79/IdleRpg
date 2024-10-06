@@ -11,19 +11,25 @@
         </ui:VisualElement>
         <ui:VisualElement name="ore-container" class="ore-container">
             <ui:VisualElement name="ore-0" class="single-layer border-regular ore-container single-ore" style="flex-direction: row;">
-                <ui:VisualElement name="icon-image" class="icon-image" />
+                <ui:VisualElement name="icon-container" class="icon-container">
+                    <ui:Image name="icon-image" style="flex-grow: 1;" />
+                </ui:VisualElement>
                 <ui:Label tabindex="-1" text="Copper" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ore-name-label" class="text-regular ore-label-sizing" />
                 <ui:Label tabindex="-1" text="+888" parse-escape-sequences="true" display-tooltip-when-elided="true" name="amount-label" class="text-regular ore-label-sizing" style="max-width: 20%; min-width: 15%;" />
                 <ui:Label tabindex="-1" text="21.51k" parse-escape-sequences="true" display-tooltip-when-elided="true" name="inv-label" class="text-regular ore-label-sizing" style="max-width: 25%; min-width: 25%;" />
             </ui:VisualElement>
             <ui:VisualElement name="ore-1" class="single-layer border-regular ore-container single-ore" style="flex-direction: row;">
-                <ui:VisualElement name="icon-image" class="icon-image" />
+                <ui:VisualElement name="icon-container" class="icon-container">
+                    <ui:Image name="icon-image" style="flex-grow: 1;" />
+                </ui:VisualElement>
                 <ui:Label tabindex="-1" text="Copper" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ore-name-label" class="text-regular ore-label-sizing" />
                 <ui:Label tabindex="-1" text="+888" parse-escape-sequences="true" display-tooltip-when-elided="true" name="amount-label" class="text-regular ore-label-sizing" style="max-width: 20%; min-width: 15%;" />
                 <ui:Label tabindex="-1" text="21.51k" parse-escape-sequences="true" display-tooltip-when-elided="true" name="inv-label" class="text-regular ore-label-sizing" style="max-width: 25%; min-width: 25%;" />
             </ui:VisualElement>
             <ui:VisualElement name="ore-2" class="single-layer border-regular ore-container single-ore" style="flex-direction: row;">
-                <ui:VisualElement name="icon-image" class="icon-image" />
+                <ui:VisualElement name="icon-container" class="icon-container">
+                    <ui:Image name="icon-image" style="flex-grow: 1;" />
+                </ui:VisualElement>
                 <ui:Label tabindex="-1" text="Copper" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ore-name-label" class="text-regular ore-label-sizing" />
                 <ui:Label tabindex="-1" text="+888" parse-escape-sequences="true" display-tooltip-when-elided="true" name="amount-label" class="text-regular ore-label-sizing" style="max-width: 20%; min-width: 15%;" />
                 <ui:Label tabindex="-1" text="21.51k" parse-escape-sequences="true" display-tooltip-when-elided="true" name="inv-label" class="text-regular ore-label-sizing" style="max-width: 25%; min-width: 25%;" />
