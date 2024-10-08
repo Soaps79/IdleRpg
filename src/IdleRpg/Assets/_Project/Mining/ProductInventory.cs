@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 [Serializable]
 public class ProductInventory
@@ -10,6 +11,17 @@ public class ProductInventory
 	public Action<ProductAmount> OnAmountChanged;
 
 	public bool LeaveEmptyElements;
+
+	public ProductInventory() { }
+
+	public void SetupAllProducts()
+	{
+		foreach (var product in Locator.Lookup.AllProducts)
+		{
+			AddProduct(product, 0);
+		}
+		SetDisplayInventory();
+	}
 
 	public void AddProduct(ProductAmount oreAmount)
 	{
@@ -58,7 +70,7 @@ public class ProductInventory
 		{
 			inventory.Add(new ProductAmount(kvp.Key, kvp.Value));
 		}
-		CurrentInventory = inventory.ToArray();
+		CurrentInventory = inventory.OrderBy(i => i.Product.SortOrder).ToArray();
 	}
 
 	public List<ProductAmount> Purge()

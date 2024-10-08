@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 108ddc23e5d52e440ab22a440a774886, type: 3}
-  m_Name: ore-copper
+  m_Name: ore-iron
   m_EditorClassIdentifier: 
-  DisplayName: Copper
+  DisplayName: Iron
   Icon: {fileID: 21300000, guid: 1129faaca73288340b5492657b695fa5, type: 3}
-  IconTintColor: {r: 0.6901961, g: 0.3662508, b: 0.019607825, a: 1}
-  SortOrder: 31
+  IconTintColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+  SortOrder: 32

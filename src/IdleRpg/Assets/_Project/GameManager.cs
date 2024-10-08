@@ -1,5 +1,7 @@
 using UnityEngine;
 using QGame;
+using System.Collections.Generic;
+using System.Linq;
 
 public class GameManager : QScript
 {
@@ -16,9 +18,21 @@ public class GameManager : QScript
 	[SerializeField]
 	private UiManager _uiManager;
 
+	[SerializeField]
+	private InventorySO _startingInventory;
+
+	private void Awake()
+	{
+		ServiceLocator.Register<GameManager>(this);
+	}
+
 	private void Start()
 	{
 		OnNextUpdate += BeginGame;
+		if(_startingInventory != null)
+		{
+			_startingInventory.ApplyTo(Locator.CoreInventory.Products);
+		}
 	}
 
 	private void BeginGame()
@@ -27,5 +41,5 @@ public class GameManager : QScript
 		_questManager.BeginQuest(_quest);
 
 		_uiManager.QuestTabController.InitializeQuest(_questManager);		
-	}
+	}	
 }

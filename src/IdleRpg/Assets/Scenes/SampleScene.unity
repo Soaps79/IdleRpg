@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 560499946}
   - component: {fileID: 560499945}
   - component: {fileID: 560499947}
+  - component: {fileID: 560499948}
   m_Layer: 0
   m_Name: game-manager
   m_TagString: Untagged
@@ -560,6 +561,7 @@ MonoBehaviour:
   _battleManager: {fileID: 521049785}
   _questManager: {fileID: 1445825790}
   _uiManager: {fileID: 928591735}
+  _startingInventory: {fileID: 11400000, guid: 3f463874a77539348b90be17e501431d, type: 2}
 --- !u!4 &560499946
 Transform:
   m_ObjectHideFlags: 0
@@ -588,6 +590,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tracking: 
+--- !u!114 &560499948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560499944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1fbda6abc78224aa69cbf7c8c0fa93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Products:
+    CurrentInventory: []
+    LeaveEmptyElements: 0
+--- !u!1 &583042094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 583042096}
+  - component: {fileID: 583042095}
+  m_Layer: 0
+  m_Name: core-lookup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &583042095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583042094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 096e2de1deea8bd4e84622769a2dd776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &583042096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583042094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7984937, y: -0.13647391, z: -0.0048832335}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +985,8 @@ MonoBehaviour:
     Results:
     - Product: {fileID: 11400000, guid: c6dffb935d4cc2840a2075ddfd25f4ac, type: 2}
       Amount: 2
+    - Product: {fileID: 11400000, guid: 03ada51325299de48a0e679ae48cb9ab, type: 2}
+      Amount: 1
     Duration: 2
   Inventory:
     CurrentInventory: []
@@ -1402,6 +1465,7 @@ SceneRoots:
   - {fileID: 335047168}
   - {fileID: 519420032}
   - {fileID: 619394802}
+  - {fileID: 583042096}
   - {fileID: 560499946}
   - {fileID: 521049786}
   - {fileID: 1445825791}

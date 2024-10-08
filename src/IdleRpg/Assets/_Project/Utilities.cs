@@ -306,4 +306,19 @@ public static class Locator
 	{
 		get { return ServiceLocator.Get<UiManager>(); }
 	}
+
+	public static CoreInventory CoreInventory
+	{
+		get { return ServiceLocator.Get<CoreInventory>(); }
+	}
+
+	public static GameManager GameManager
+	{
+		get { return ServiceLocator.Get<GameManager>(); }
+	}
+
+	public static CoreLookup Lookup
+	{
+		get { return ServiceLocator.Get<CoreLookup>(); }
+	}
 }

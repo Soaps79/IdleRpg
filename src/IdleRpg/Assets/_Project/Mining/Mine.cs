@@ -44,7 +44,8 @@ public class Mine : QScript, IPointerClickHandler
         var result = new List<ProductAmount>();
 		var remainingAmount = amount;
 
-        foreach (var productAmount in Inventory.CurrentInventory.ToList())
+        foreach (var productAmount in 
+			Inventory.CurrentInventory.ToList().OrderByDescending(i => i.Product.SortOrder))
         {
 			if (productAmount.Amount >= remainingAmount)
             {
