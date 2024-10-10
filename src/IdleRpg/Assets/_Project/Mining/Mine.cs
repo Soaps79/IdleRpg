@@ -24,7 +24,8 @@ public class Mine : QScript, IPointerClickHandler
 
 	private void Start()
 	{
-        StartProducing();
+		if(!IsLocked)
+			StartProducing();
 		SetupMinePath();
 	}
 

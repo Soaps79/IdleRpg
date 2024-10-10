@@ -31,7 +31,8 @@ public class MineView : QScript
 		_slider = view.Q<VisualElement>(_sliderName);
 		_oreContainer = view.Q<VisualElement>(_oreContainerName);
 
-		_sliderBinding = SliderBindingFactory.CreateSliderBinding(_slider, () => "", () => _mine.CraftingContainer.CurrentCraftProgress, transform);
+		if(!_mine.IsLocked)
+			_sliderBinding = SliderBindingFactory.CreateSliderBinding(_slider, () => "", () => _mine.CraftingContainer.CurrentCraftProgress, transform);
 
      	UpdateView();
     }

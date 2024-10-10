@@ -68,7 +68,7 @@ public class SingleItemView
 		_iconImage.sprite = _productAmount.Product.Icon;
 		_iconImage.tintColor = _productAmount.Product.IconTintColor;
 
-		_nameLabel.text = _productAmount.Product.Name;
+		_nameLabel.text = _productAmount.Product.DisplayName;
 		_amountLabel.text = _productAmount.Amount.ToString();
 	}
 }

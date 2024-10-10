@@ -60,7 +60,7 @@ public class StatsBoxController : QScript
 				continue;
 
 			var singleItemView = new SingleItemView(Locator.UIManager.SingleValueTemplate);
-			var view = singleItemView.Bind(productAmount, false, true, false);
+			var view = singleItemView.Bind(productAmount, false, false, false);
 			_bottomInventoryContainer.Add(view);
 			_bottomItems.Add(singleItemView);
 		}

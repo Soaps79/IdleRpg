@@ -927,11 +927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Recipe:
     Ingredients: []
-    Results:
-    - Product: {fileID: 11400000, guid: c6dffb935d4cc2840a2075ddfd25f4ac, type: 2}
-      _amount: 0
-    - Product: {fileID: 11400000, guid: 03ada51325299de48a0e679ae48cb9ab, type: 2}
-      _amount: 0
+    Results: []
     Duration: 2
   Inventory:
     CurrentInventory: []
