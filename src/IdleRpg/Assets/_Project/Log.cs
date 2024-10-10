@@ -4,6 +4,7 @@ public static class Log
 {
 	private static string _battlePrefix = "[Battle]";
 	private static string _questPrefix = "[Quest]";
+	private static string _minePrefix = "[Mine]";
 
 	public static void Battle(string message)
 	{
@@ -13,6 +14,11 @@ public static class Log
 	public static void Quest(string message)
 	{
 		Debug.Log($"{_questPrefix} {message}");
+	}
+
+	public static void Mine(string message)
+	{
+		Debug.Log($"{_minePrefix} {message}");
 	}
 	
 	public static void Plain(string message)

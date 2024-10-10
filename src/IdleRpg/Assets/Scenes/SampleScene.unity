@@ -828,6 +828,7 @@ MonoBehaviour:
   _wholeScreenDocument: {fileID: 1192338308}
   _tooltipOffset: {x: 10, y: -50}
   _tabViewTemplate: {fileID: 9197481963319205126, guid: f089709faf9d9124f92a60bb482c01ab, type: 3}
+  SingleValueTemplate: {fileID: 9197481963319205126, guid: 182afd5efb3f2824eb9ba0d0e1be5640, type: 3}
   _mineTooltipTemplate: {fileID: 9197481963319205126, guid: 918ad57514d3aaf488b4180538e58c3e, type: 3}
   Tabs:
   - {fileID: 1668633046}
@@ -1020,6 +1021,7 @@ Transform:
   - {fileID: 1668633045}
   - {fileID: 748510306}
   - {fileID: 309783402}
+  - {fileID: 1293460030}
   m_Father: {fileID: 928591733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1192338308
@@ -1192,6 +1194,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.83, y: 3.52}
   m_EdgeRadius: 0
+--- !u!1 &1293460029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1293460030}
+  - component: {fileID: 1293460031}
+  m_Layer: 0
+  m_Name: stats-box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1293460030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293460029}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.216929, y: 1.387452, z: -0.029631449}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1192338307}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1293460031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293460029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadf10ddf16476d42baa165588723adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statsBoxTemplate: {fileID: 9197481963319205126, guid: efef2bb7d1c47b1478c6e5020e56d61c, type: 3}
 --- !u!1 &1445825789
 GameObject:
   m_ObjectHideFlags: 0

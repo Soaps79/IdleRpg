@@ -2,6 +2,7 @@ using UnityEngine;
 using QGame;
 using System;
 using UnityEngine.Splines;
+using System.Linq;
 
 [RequireComponent(typeof(SplineAnimate))]
 public class MineRunner : QScript
@@ -72,10 +73,13 @@ public class MineRunner : QScript
 	{
 		_movingTowardsMine = true;
 		var purge = OreInventory.Purge();
+		
+		Log.Mine("Runner purged " + string.Join(", ", purge.Select(i => $"{i.Product.name} x {i.Amount}")));
+
 		foreach (var oreAmount in purge)
 		{
 			_home.Inventory.AddProduct(oreAmount);
 		}
-		OnReachMine?.Invoke(this);
+		OnReachTown?.Invoke(this);
 	}
 }

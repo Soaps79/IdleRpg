@@ -1,0 +1,11 @@
+.icon-container {
+    flex-grow: 1;
+    width: 32px;
+    background-color: rgb(0, 0, 0);
+    flex-shrink: 0;
+}
+
+.amount-container {
+    flex-grow: 1;
+    padding-left: 6px;
+}

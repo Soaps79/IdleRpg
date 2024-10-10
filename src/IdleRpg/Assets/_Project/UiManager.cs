@@ -10,6 +10,7 @@ public class UiManager : QScript
 	private const string _viewTabName = "view-container";
 	private const string _tabLabelName = "tab-name-label";
 	private const string _tooltipLayerName = "tooltip-layer";
+	private const string _statsBoxName = "stats-box";
 
 	[SerializeField]
 	private string _startingTab;
@@ -29,9 +30,13 @@ public class UiManager : QScript
 	// layer on which tooltips are created, captures events to clear them
 	private VisualElement _tooltipLayer;
 
+	public VisualElement StatsBoxContainer { get; private set; }
+
 	// prefab for container for all tab views
 	[SerializeField]
 	private VisualTreeAsset _tabViewTemplate;
+
+	public VisualTreeAsset SingleValueTemplate;
 
 	// prefabs for tooltips - move these somewhere else once a pattern emerges
 	[SerializeField]
@@ -47,16 +52,18 @@ public class UiManager : QScript
 	private void Awake()
 	{
 		ServiceLocator.Register<UiManager>(this);
-	}
 
-	private void Start()
-	{
 		_root = _wholeScreenDocument.rootVisualElement;
 		_mainWindow = _wholeScreenDocument.rootVisualElement.Q<VisualElement>(GameUiNames.MainWindow);
 
 		_tooltipLayer = _wholeScreenDocument.rootVisualElement.Q<VisualElement>(_tooltipLayerName);
 		_tooltipLayer.RegisterCallback<ClickEvent>(evt => ClearTooltips());
 
+		StatsBoxContainer = _wholeScreenDocument.rootVisualElement.Q<VisualElement>(_statsBoxName);
+	}
+
+	private void Start()
+	{
 		foreach (var tab in Tabs)
 		{
 			// only tabe who have existing buttons will be created

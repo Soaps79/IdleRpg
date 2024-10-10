@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/inv-single-item-style.uss?fileID=7433441132597879392&amp;guid=fc6086ad9f62114458e060b7170db944&amp;type=3#inv-single-item" />
+    <Style src="project://database/Assets/_Project/UI/root.uss?fileID=7433441132597879392&amp;guid=fb63925b08c869746912bd8a6431e368&amp;type=3#root" />
+    <ui:VisualElement name="single-value" class="single-layer" style="flex-grow: 0; width: auto; flex-direction: row;">
+        <ui:VisualElement name="icon-container" class="icon-container" style="max-width: 32px; min-width: 32px; flex-shrink: 1;">
+            <ui:Image name="icon-image" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="name-container" class="amount-container">
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="name-label" class="text-regular" style="visibility: visible;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="amount-container" class="amount-container">
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="amount-label" class="text-regular" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

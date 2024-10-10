@@ -5,7 +5,7 @@ using System.Linq;
 [Serializable]
 public class ProductInventory
 {
-	private Dictionary<ProductSO, int> _inventory = new Dictionary<ProductSO, int>();
+	private Dictionary<ProductSO, ProductAmount> _inventory = new Dictionary<ProductSO, ProductAmount>();
 	public ProductAmount[] CurrentInventory;
 
 	public Action<ProductAmount> OnAmountChanged;
@@ -23,6 +23,11 @@ public class ProductInventory
 		SetDisplayInventory();
 	}
 
+	public List<ProductAmount> GetAll()
+	{
+		return _inventory.Values.OrderBy(i => i.Product.SortOrder).ToList();
+	}
+
 	public void AddProduct(ProductAmount oreAmount)
 	{
 		AddProduct(oreAmount.Product, oreAmount.Amount);
@@ -32,11 +37,11 @@ public class ProductInventory
 	{
 		if (_inventory.ContainsKey(product))
 		{
-			_inventory[product] += amount;
+			_inventory[product].Amount += amount;
 		}
 		else
 		{
-			_inventory.Add(product, amount);
+			_inventory.Add(product, new ProductAmount(product, amount));
 		}
 		SetDisplayInventory();
 		OnAmountChanged?.Invoke(new ProductAmount(product, amount));
@@ -53,8 +58,8 @@ public class ProductInventory
 	{
 		if (_inventory.ContainsKey(product))
 		{
-			_inventory[product] -= Math.Min(amount, _inventory[product]);
-			if (!LeaveEmptyElements && _inventory[product] <= 0)
+			_inventory[product].Amount -= Math.Min(amount, _inventory[product].Amount);
+			if (!LeaveEmptyElements && _inventory[product].Amount <= 0)
 			{
 				_inventory.Remove(product);
 			}
@@ -65,20 +70,16 @@ public class ProductInventory
 
 	private void SetDisplayInventory()
 	{
-		var inventory = new List<ProductAmount>();
-		foreach (var kvp in _inventory)
-		{
-			inventory.Add(new ProductAmount(kvp.Key, kvp.Value));
-		}
-		CurrentInventory = inventory.OrderBy(i => i.Product.SortOrder).ToArray();
+		CurrentInventory = _inventory.Values.OrderBy(i => i.Product.SortOrder).ToArray();
 	}
 
+	// does not yet handle leaving empty elements
 	public List<ProductAmount> Purge()
 	{
 		var result = new List<ProductAmount>();
 		foreach (var kvp in _inventory)
 		{
-			result.Add(new ProductAmount (kvp.Key, kvp.Value));
+			result.Add(kvp.Value);
 		}
 		_inventory.Clear();
 		SetDisplayInventory();
@@ -89,7 +90,7 @@ public class ProductInventory
 	{
 		if (_inventory.ContainsKey(product))
 		{
-			return _inventory[product];
+			return _inventory[product].Amount;
 		}
 		return 0;
 	}

@@ -45,19 +45,19 @@ public class Mine : QScript, IPointerClickHandler
 		var remainingAmount = amount;
 
         foreach (var productAmount in 
-			Inventory.CurrentInventory.ToList().OrderByDescending(i => i.Product.SortOrder))
+			Inventory.GetAll().OrderByDescending(i => i.Product.SortOrder))
         {
 			if (productAmount.Amount >= remainingAmount)
             {
-				Inventory.RemoveProduct(productAmount.Product, amount);
-				result.Add(productAmount);
+				Inventory.RemoveProduct(productAmount.Product, remainingAmount);
+				result.Add(new ProductAmount(productAmount.Product, remainingAmount));
 				remainingAmount = 0;
 			}
 			else
             {
-				Inventory.RemoveProduct(productAmount.Product, productAmount.Amount);
-				result.Add(productAmount);
+				result.Add(productAmount.Clone()); 
 				remainingAmount -= productAmount.Amount;
+				Inventory.RemoveProduct(productAmount.Product, productAmount.Amount);				
 			}
 			if (remainingAmount == 0)
 				break;
@@ -68,6 +68,7 @@ public class Mine : QScript, IPointerClickHandler
 		if(result.Any(i => i.Amount > 0))
 			OnStateChanged?.Invoke();
 
+		Log.Mine("Mine gave runner " + string.Join(", ", result.Select(i => $"{i.Product.name} x {i.Amount}")));
 		return result;
     }
 

@@ -13,8 +13,8 @@ public class ProductAmount
 		get { return _amount; }
 		set
 		{
-			OnAmountChanged?.Invoke(this);
 			_amount = value;
+			OnAmountChanged?.Invoke(this);
 		}		
 	}
 
@@ -25,5 +25,10 @@ public class ProductAmount
 	{
 		Product = product;
 		Amount = amount;
+	}
+
+	public ProductAmount Clone()
+	{
+		return new ProductAmount(Product, Amount);
 	}
 }
