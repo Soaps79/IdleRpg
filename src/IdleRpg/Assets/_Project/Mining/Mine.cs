@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.EventSystems;
+using UnityEngine.Splines;
 
 public class Mine : QScript, IPointerClickHandler
 {
@@ -14,11 +15,25 @@ public class Mine : QScript, IPointerClickHandler
 
 	public Action OnStateChanged;
 
+	[SerializeField]
+	private GameObject _MinePath;
+
+	public bool IsLocked;
+
 	public CraftingContainer CraftingContainer { get; private set; }
 
 	private void Start()
 	{
         StartProducing();
+		SetupMinePath();
+	}
+
+	private void SetupMinePath()
+	{
+		var splineInstantiate = _MinePath.GetComponent<SplineInstantiate>();
+		splineInstantiate.itemsToInstantiate[0].Prefab.GetComponent<SpriteRenderer>().color =
+			IsLocked ? Color.red : Color.white;
+		splineInstantiate.UpdateInstances();
 	}
 
 	public void StartProducing()

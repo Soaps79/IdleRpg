@@ -936,6 +936,8 @@ MonoBehaviour:
   Inventory:
     CurrentInventory: []
     LeaveEmptyElements: 0
+  _MinePath: {fileID: 1497595292}
+  IsLocked: 1
 --- !u!212 &1083023371
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1149,6 +1151,8 @@ MonoBehaviour:
   Inventory:
     CurrentInventory: []
     LeaveEmptyElements: 0
+  _MinePath: {fileID: 1746874937}
+  IsLocked: 0
 --- !u!61 &1204415637
 BoxCollider2D:
   m_ObjectHideFlags: 0
