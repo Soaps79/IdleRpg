@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Products:
   - Product: {fileID: 11400000, guid: 0b1adc6d6da9c7146aa6aae9ab85e34f, type: 2}
-    Amount: 12000
+    _amount: 2000
   - Product: {fileID: 11400000, guid: c6dffb935d4cc2840a2075ddfd25f4ac, type: 2}
-    Amount: 60
+    _amount: 20
   - Product: {fileID: 11400000, guid: 535fe892e92957946b717e86ce9f6893, type: 2}
-    Amount: 100
+    _amount: 100

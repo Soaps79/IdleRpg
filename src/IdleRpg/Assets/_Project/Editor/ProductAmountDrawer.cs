@@ -27,7 +27,7 @@ public class ProductAmountDrawer : PropertyDrawer
 		EditorGUI.LabelField(categoryRect, "Amt");
 		categoryRect.x += 30;
 		categoryRect.width = 120;
-		EditorGUI.PropertyField(categoryRect, property.FindPropertyRelative("Amount"), GUIContent.none);
+		EditorGUI.PropertyField(categoryRect, property.FindPropertyRelative("_amount"), GUIContent.none);
 
 		EditorGUI.EndProperty();
 	}

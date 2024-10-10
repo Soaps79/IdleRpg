@@ -7,7 +7,10 @@
             <ui:Button text="Quest" parse-escape-sequences="true" display-tooltip-when-elided="true" name="button-quest" class="button" />
             <ui:Button text="World" parse-escape-sequences="true" display-tooltip-when-elided="true" name="button-world" class="button" />
         </ui:VisualElement>
-        <ui:VisualElement name="main-window" picking-mode="Ignore" class="main-window" />
+        <ui:VisualElement name="right-side" picking-mode="Ignore" style="flex-grow: 1;">
+            <ui:VisualElement name="main-window" picking-mode="Ignore" class="main-window" />
+            <ui:VisualElement name="stats-box" class="stats-box" />
+        </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="tooltip-layer" picking-mode="Ignore" class="tooltip-layer" />
 </ui:UXML>
